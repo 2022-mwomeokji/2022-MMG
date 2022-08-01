@@ -5,7 +5,6 @@ import com.umc.mwomeokji.domain.dish.dto.DishDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -14,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.atMostOnce;
 import static org.mockito.Mockito.verify;
@@ -37,7 +37,7 @@ class DishControllerTest {
         // given
         DishDto.DishesNameResponse dishesNameResponse1 = new DishDto.DishesNameResponse(1L, "초밥");
         DishDto.DishesNameResponse dishesNameResponse2 = new DishDto.DishesNameResponse(2L, "냉면");
-        List<DishDto.DishesNameResponse> dishesNameResponseList = Stream.of(dishesNameResponse1, dishesNameResponse1).collect(Collectors.toList());
+        List<DishDto.DishesNameResponse> dishesNameResponseList = Stream.of(dishesNameResponse1, dishesNameResponse2).collect(Collectors.toList());
         given(dishService.getAllDishesName()).willReturn(dishesNameResponseList);
 
         // when, then
@@ -49,9 +49,23 @@ class DishControllerTest {
         verify(dishService, atMostOnce()).getAllDishesName();
     }
 
-    @DisplayName("메뉴 상세 정보 조회 - 성공")
+    @DisplayName("메뉴 상세 정보 조회")
     @Test
-    void get_dish_details() {
+    void get_dish_details() throws Exception{
+        // given
+        DishDto.DishDetailsResponse dishDetailsResponse
+                = new DishDto.DishDetailsResponse(1L, "피자", "피자 이미지", "피자 영상 1", "피자 영상 2", "피자 영상 3");
+        given(dishService.getDishDetails(anyLong())).willReturn(dishDetailsResponse);
 
+        // when, then
+        mockMvc.perform(get("/dishes/{id}", 1))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").value(dishDetailsResponse.getName()))
+                .andExpect(jsonPath("$.imageUrl").value(dishDetailsResponse.getImageUrl()))
+                .andExpect(jsonPath("$.videoUrl1").value(dishDetailsResponse.getVideoUrl1()))
+                .andExpect(jsonPath("$.videoUrl2").value(dishDetailsResponse.getVideoUrl2()))
+                .andExpect(jsonPath("$.videoUrl3").value(dishDetailsResponse.getVideoUrl3()))
+                .andDo(print());
+        verify(dishService, atMostOnce()).getDishDetails(1L);
     }
 }
