@@ -18,8 +18,8 @@ public interface QuestionMapper {
     default QuestionAndDishesResponse toQuestionAndDishesResponse(Question question, List<QuestionDish> questionDishList) {
         List<Dish> dishesList = questionDishList
                 .stream().map(questionDish -> questionDish.getDish()).collect(Collectors.toList());
-        List<DishDto.DishesNameResponse> dishesNameResponseList = dishesList
-                .stream().map(dish -> new DishDto.DishesNameResponse(dish.getId(), dish.getName())).collect(Collectors.toList());
+        List<DishDto.DishNameResponse> dishesNameResponseList = dishesList
+                .stream().map(dish -> new DishDto.DishNameResponse(dish.getId(), dish.getName())).collect(Collectors.toList());
         return new QuestionAndDishesResponse(question.getQuestion(), dishesNameResponseList);
     }
 }
