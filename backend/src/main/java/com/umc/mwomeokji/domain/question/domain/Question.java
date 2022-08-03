@@ -25,7 +25,7 @@ public class Question extends BaseEntity {
     private String category;
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
-    List<QuestionDish> questionDishList = new ArrayList<>();
+    private List<QuestionDish> questionDishList = new ArrayList<>();
 
     @Builder
     public Question(String question, String category) {

@@ -18,6 +18,6 @@ public class QuestionDto {
     @RequiredArgsConstructor
     public static class QuestionAndDishesResponse {
         private final String question;
-        private final List<DishDto.DishesNameResponse> dishesNameResponseList;
+        private final List<DishDto.DishNameResponse> dishNameResponseList;
     }
 }
