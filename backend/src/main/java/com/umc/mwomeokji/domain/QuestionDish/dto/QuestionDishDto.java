@@ -1,4 +1,4 @@
-package com.umc.mwomeokji.domain.QuestionDish.dao.dto;
+package com.umc.mwomeokji.domain.QuestionDish.dto;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
