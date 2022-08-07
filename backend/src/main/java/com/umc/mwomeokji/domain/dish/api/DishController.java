@@ -30,7 +30,7 @@ public class DishController {
         return ResponseEntity.status(OK).body(dishService.getDishDetails(id));
     }
     @GetMapping("/random")
-    public ResponseEntity<DishDetailsResponse> getDishRandom(){
+    public ResponseEntity<DishDetailsResponse> getDishRandom() {
         return ResponseEntity.status(OK).body(dishService.getDishRandom());
     }
 
