@@ -1,0 +1,134 @@
+body {
+  height: 7vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#container {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+}
+
+back_button {
+  position: relative;
+  margin-right: 300px;
+  margin-top: 42px;
+}
+
+.image {
+  background-color: white;
+  border: 0ch;
+  text-align: center;
+}
+
+#num_container {
+  display: flex;
+  margin: 0 auto;
+}
+
+#plate_container {
+  position: relative;
+}
+
+#num {
+  position: absolute;
+  margin: 5px 55px;
+}
+
+hr {
+  width: 464px;
+  border: 0px;
+  border-top: 2px solid #e9e9e9;
+}
+
+#inputItem {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: wrap;
+  margin-top: 30px;
+}
+
+.item_box {
+  width: 240px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px auto;
+  flex-direction: column;
+}
+
+.item_container {
+  width: 220px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 25px;
+  background-color: #f9f8ec;
+  filter: drop-shadow(0px 2px 4px rgba(73, 70, 70, 0.2));
+}
+
+.rps_img {
+  margin: 0 auto;
+  padding-top: 24px;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+input:-ms-input-placeholder {
+  text-align: center;
+}
+
+.rps_name {
+  margin: 0 auto;
+  margin-top: 14px;
+  background-color: transparent;
+  border: 0;
+  text-align: center;
+}
+
+.rps_menu {
+  margin: 0 auto;
+  margin-top: 14px;
+  background-color: #ebeb99;
+  border: 0;
+  border-radius: 50px;
+  height: 35px;
+  width: 146px;
+  text-align: center;
+}
+
+.item_container button {
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  padding-top: 23px;
+  padding-left: 210px;
+}
+
+.edit_img {
+  display: block;
+}
+
+.check_img {
+  display: block;
+  margin-top: 16px;
+  visibility: hidden;
+}
+
+#next_img {
+  margin-top: 50px;
+}
