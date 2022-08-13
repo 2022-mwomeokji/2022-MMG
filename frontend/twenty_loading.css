@@ -16,10 +16,12 @@ top_botton{
 
 
 text{
-    position: absolute;
+    position: relative;
     color: black;
-    left: 700px;
-    bottom: 250px;
+    text-align: center;
+    top: 50px;
+    right: 190px;
+    
 }
 
 

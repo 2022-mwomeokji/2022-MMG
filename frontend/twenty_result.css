@@ -1,0 +1,24 @@
+body{
+    display: flex;
+    flex-direction: column;
+
+    margin: auto;
+  
+  }
+
+.image {
+    border: 0ch;
+    background-color: white;
+    text-align: center;
+    position: relative;
+}
+
+#logo_word{
+    position: relative;
+
+}
+
+#back_button{
+    position: relative;
+    right: 350px;
+}

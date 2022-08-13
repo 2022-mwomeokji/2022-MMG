@@ -20,6 +20,7 @@
     <div class="container">
     
         <!--상단 로고 오늘은 뭐먹지-->
+        
         <top_botton>
             <button type="button" class="image" id = "back_botton" onClick='count("minus")' onClick=history.back(); width="auto", height="40">
                 <img  src=".\img_file_twenty\twenty_guess_sec_arrow_back.svg" width="auto", height="50">
@@ -80,17 +81,23 @@
             </button>
         </d>
     
+
     
-    
-        <skip id="skip_guess">
-            <button class="image" id="skip_guess">
-                <img id="skip" src=".\img_file_twenty\twenty_guess_choose_more.svg " width="800", height="auto">
+        <skip>
+            <button class="image"  id="skip_guess" onclick="choose()">
+                <img id="skipd" src=".\img_file_twenty\twenty_guess_choose_more.svg" width="800", height="auto">
             </button>        
         </skip>  
-    
+
+
         
     
     </div>
     
 
 </body>
+<!--
+        <e onclick="changeimage(),choose() ">
+            <img id="skipd" src=".\img_file_twenty\twenty_guess_choose_more.svg"> 
+        </e>      
+-->

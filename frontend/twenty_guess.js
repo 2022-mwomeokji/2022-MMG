@@ -1,6 +1,14 @@
+
 var keys=[];
 var food_named=[];
 var food_data=[];
+//export var chose_food=0;
+
+
+function sleep(ms) {
+  const wakeUpTime = Date.now() + ms;
+  while (Date.now() < wakeUpTime) {}
+}
 
 //fetch 시작
 async function getjson(){
@@ -14,12 +22,12 @@ async function getjson(){
       //console.log(key+ [key].question);
       //질문들을 알 수 있음
   }
-  for(key in data) {
+  for(var key in data) {
     keys.push(key);
       //console.log(key+ data[key]);
       //console.log("메뉴 "+key+ data[key].dishNameResponseList); //out 질문에 대한 음식 갯수체크정도
       //질문들을 알 수 있음
-      for(smallkey in data[key].dishNameResponseList){
+      for(var smallkey in data[key].dishNameResponseList){
         food_named.push(smallkey);
         //console.log(smallkey+ data[key].dishNameResponseList[smallkey].name);
         //data[key].dishNameResponseList[1].name
@@ -48,7 +56,7 @@ async function getjson(){
 
 
 
-guess_food_data = getjson();
+var guess_food_data = getjson();
 
 console.log("data = "+guess_food_data);
 var keys=[];
@@ -86,17 +94,16 @@ function getRandom(min, max) {
       }
     }
   }
-  
 
-getRandomArray(0,2,3);
-for(var i=0 ; i<3 ; i++){
+
+getRandomArray(0,9,10);
+for(var i=0 ; i<10 ; i++){
   console.log(rst[i]);
 }
 //배열 랜덤으로 만드는 부분
 
 
 var guess_order=0;
-//next_guess()
 function next_guess(){
   data=getjson();
   const guessElement = document.getElementById('guess_text');
@@ -154,11 +161,60 @@ function nurmal(){
   console.log(arr);
 }
 
+var chose_food=0;
 
+function choose(){
+  const resultElement = document.getElementById('guess_number');
+  let number = resultElement.innerText;
+  if(number>7){
+    let sorted = Object.entries(arr).sort((a, b) => b[1] - a[1]);
+    var sorted_arr = [];
+    var big_value=sorted[0][1];
+    var chose;
+    var big_value_arr=[];
+    var length=0;
 
+    for(let element of sorted) {
+      if(big_value==element[1]){
+        big_value_arr.push(element[0]);
+        length+=1;
+      }
+      //console.log("big ="+big_value);
+	    sorted_arr.push(element[0])
+	    //console.log(element[0]+ ": " + element[1]);
+    }
 
+    console.log(sorted_arr)
 
+    console.log("-----------");
 
+    //console.log(big_value_arr);
+    var num = Math.random() * length; // Math 앞에 대문자
+    var ball1 = parseInt(num); // parseInt 철자 주의
+    //console.log(big_value_arr[ball1]);
+    chose_food=big_value_arr[ball1];
+    
+    chose_succuess(ball1);
+    
+  
+  async function chose_succuess(food_id){
+  //console.log("123");
+  var result_url = "http://localhost:8081/dishes/";
+  const response = await fetch(result_url+food_id);
+  const data = await response.json();
+  console.log(data);
+
+  }
+  //module.export = {chose_food}
+  setTimeout(function() {  location.href='./twenty_loading.html'; }, 4000);
+  setTimeout(function() {  location.href='./twenty_result.html'; }, 2000);
+  //location.href='./twenty_loading.html'
+  }
+  else if(number<8){
+    window.alert("조금 더 진행해주시면 감사하겠습니다");
+  }
+  
+}
 
 
 
@@ -167,7 +223,6 @@ function count(type)  {
   const resultElement = document.getElementById('guess_number');
   // 현재 화면에 표시된 값
   let number = resultElement.innerText;
-
   // 더하기/빼기
   if(type === 'plus') {
     number = parseInt(number) + 1;
@@ -178,9 +233,9 @@ function count(type)  {
     }
   }
 
-  if(number>1){
-    //window.alert(1);
-    document.getElementById("skip").src=".\img_file_twenty\twenty_guess_skip_guess.svg";
+
+  if(number>7){
+    document.getElementById("skipd").src= "./img_file_twenty/twenty_guess_skip_guess.svg";
   }
   
   // 결과 출력
