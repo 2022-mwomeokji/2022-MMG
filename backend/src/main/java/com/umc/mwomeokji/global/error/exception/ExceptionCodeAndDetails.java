@@ -27,16 +27,11 @@ public enum ExceptionCodeAndDetails {
     ;
     private final int status;
     private final String code;
-    private String message;
+    private final String message;
 
     ExceptionCodeAndDetails(int status, String code, String message) {
         this.status = status;
         this.code = code;
         this.message = message;
-    }
-
-    ExceptionCodeAndDetails(int status, String code) {
-        this.status = status;
-        this.code = code;
     }
 }
