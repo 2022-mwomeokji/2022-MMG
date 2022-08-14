@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rps</title>
+    <link rel="stylesheet" href="./rps_result.css" />
+    <script src="./rps_result.js"></script>
+    <link
+      href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="container">
+      <back_button>
+        <button
+          type="button"
+          class="image"
+          onClick="location.href='./rps_input.html'"
+        >
+          <img src="./img_rps/arrow_back.svg" />
+        </button>
+      </back_button>
+      <div>
+        <img id="rps" />
+      </div>
+      <div>
+        <img src="./img_rps/rps_result_enjoy.svg" width="220px" />
+      </div>
+      <div id="img_container">
+        <img src="./img_rps/rps_result_deco_left.svg" height="180px" />
+        <div id="menu_box">
+          <div id="menu_container">
+            <img id="menu_img" />
+            <div id="menu"></div>
+            <img src="./img_rps/rps_result_plate.svg" width="220px" />
+          </div>
+        </div>
+        <img src="./img_rps/rps_result_deco_right.svg" height="190px" />
+      </div>
+      <div id="name"><span>승!</span></div>
+      <img id="name_deco" src="./img_rps/rps_result_winner_deco.svg" />
+      <share_button>
+        <button type="button" class="image">
+          <img src="./img_rps/rps_result_share.svg" width="50px" />
+        </button>
+      </share_button>
+    </div>
+  </body>
+</html>

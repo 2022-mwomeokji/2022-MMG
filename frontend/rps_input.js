@@ -1,7 +1,21 @@
 var value = 2;
 
 function addItem() {
-  blockNext();
+  document
+    .querySelector("#next_img")
+    .setAttribute("src", "./img_rps/next_button_gray.svg");
+  document.getElementById("next_img").removeAttribute("onClick");
+
+  const arr = Array.from(Array(value), () => Array(2).fill(null));
+
+  for (var i = 0; i < value; i++) {
+    if (document.getElementsByClassName("rps_name")[i].readOnly == true) {
+      var nameVal = document.getElementsByClassName("rps_name")[i].value;
+      var menuVal = document.getElementsByClassName("rps_menu")[i].value;
+      arr[i][0] = nameVal;
+      arr[i][1] = menuVal;
+    }
+  }
 
   value++;
   var num = document.getElementById("num");
@@ -15,7 +29,7 @@ function addItem() {
 
   par.innerHTML += `<div class="item_box" id=${id}>
   <div class="item_container">
-    <img class="rps_img" src="./img_rps/img_${imgName[randomNumber]}.svg" width="60px" />
+    <img class="rps_img" src="./img_rps/img_${imgName[randomNumber]}_gray.svg" width="60px" />
     <input class="rps_name" placeholder="이름 입력" />
     <input class="rps_menu" placeholder="메뉴 입력" />
     <button type="button" class="image">
@@ -23,17 +37,28 @@ function addItem() {
         class="edit_img"
         src="./img_rps/edit_button.svg"
         width="35px"
-        onClick="saveValue(${value})"
+        onClick="editValue(${value})"
       />
     </button>
   </div>
-  <img class="check_img" src="./img_rps/img_check.svg" width="80px" />
+  <img class="check_img" src="./img_rps/img_check.svg" width="80px" onClick="saveValue(${value})"/>
 </div>`;
+
+  for (var i = 0; i < value - 1; i++) {
+    if (document.getElementsByClassName("rps_name")[i].readOnly == true) {
+      document.getElementsByClassName("rps_name")[i].readOnly = true;
+      document.getElementsByClassName("rps_menu")[i].readOnly = true;
+      document.getElementsByClassName("rps_name")[i].value = arr[i][0];
+      document.getElementsByClassName("rps_menu")[i].value = arr[i][1];
+    }
+  }
+
+  document.getElementsByClassName("rps_name")[value].readOnly = false;
+
+  arr = [];
 }
 
 function removeItem() {
-  blockNext();
-
   if (value < 3) {
     alert("최소 2개부터 설정해주세요.");
   } else {
@@ -45,6 +70,7 @@ function removeItem() {
     var num = document.getElementById("num");
     num.textContent = String(value);
   }
+  blockNext();
 }
 
 function saveValue(itemNum) {
@@ -60,18 +86,69 @@ function saveValue(itemNum) {
     document.getElementsByClassName("rps_menu")[id].value = menuVal;
     document.getElementsByClassName("item_container")[
       id
-    ].style.backgroundColor = "#FFFEFB";
+    ].style.backgroundColor = "#f9f8ec";
     document.getElementsByClassName("rps_menu")[id].style.backgroundColor =
-      "#f9f8ec";
-    document.getElementsByClassName("item_container")[id].style.border =
-      "1px solid #9B9B9B";
+      "#ebeb99";
+    document.getElementsByClassName("item_container")[id].style.border = "none";
     var rps = document.getElementsByClassName("rps_img")[id].src;
-    rps = String(rps).slice(0, -4);
-    document.getElementsByClassName("rps_img")[id].src = rps + "_gray.svg";
-    document.getElementsByClassName("edit_img")[id].style.display = "none";
+    rps = String(rps).slice(0, -9);
+    document.getElementsByClassName("rps_img")[id].src = rps + ".svg";
     document.getElementsByClassName("check_img")[id].style.visibility =
+      "hidden";
+    document.getElementsByClassName("edit_img")[id].style.visibility =
       "visible";
+    document.getElementsByClassName("rps_name")[id].style.borderBottom = "none";
   }
+  finishPage();
+}
+
+function hrefLink() {
+  location.href = "./rps_result.html";
+}
+
+function blockNext() {
+  var block = 0;
+  for (var i = 0; i < value; i++) {
+    if (document.getElementsByClassName("rps_name")[i].readOnly == false) {
+      block = 1;
+    }
+  }
+
+  if (block == 1) {
+    document
+      .querySelector("#next_img")
+      .setAttribute("src", "./img_rps/next_button_gray.svg");
+    document.getElementById("next_img").removeAttribute("onClick");
+  } else {
+    finishPage();
+  }
+}
+
+function editValue(itemNum) {
+  itemNum = itemNum - 1;
+  var rps = document.getElementsByClassName("rps_img")[itemNum].src;
+
+  document.getElementsByClassName("rps_name")[itemNum].readOnly = false;
+  document.getElementsByClassName("rps_menu")[itemNum].readOnly = false;
+  document.getElementsByClassName("item_container")[
+    itemNum
+  ].style.backgroundColor = "#FFFEFB";
+  document.getElementsByClassName("rps_menu")[itemNum].style.backgroundColor =
+    "#f9f8ec";
+  document.getElementsByClassName("edit_img")[itemNum].style.visibility =
+    "hidden";
+  rps = String(rps).slice(0, -4);
+  document.getElementsByClassName("rps_img")[itemNum].src = rps + "_gray.svg";
+  document.getElementsByClassName("check_img")[itemNum].style.visibility =
+    "visible";
+  document.getElementsByClassName("item_container")[itemNum].style.border =
+    "1px solid #9B9B9B";
+  document.getElementsByClassName("rps_name")[itemNum].style.borderBottom =
+    "1px solid #ccc";
+  blockNext();
+}
+
+function finishPage() {
   var finish = 1;
   for (var i = 0; i < value; i++) {
     if (document.getElementsByClassName("rps_menu")[i].readOnly == false) {
@@ -87,39 +164,14 @@ function saveValue(itemNum) {
     let randNum = Math.floor(Math.random() * value);
     var name = document.getElementsByClassName("rps_name")[randNum].value;
     var menu = document.getElementsByClassName("rps_menu")[randNum].value;
+    var src = document.getElementsByClassName("rps_img")[randNum].src;
+    src = String(src).slice(0, -4);
+    src = src + "_sign.svg";
+    if (!name) {
+      name = menu + " 먹고 싶은 사람";
+    }
     localStorage.setItem("name", name);
     localStorage.setItem("menu", menu);
+    localStorage.setItem("src", src);
   }
-}
-
-function hrefLink() {
-  location.href = "./rps_result.html";
-}
-
-function blockNext() {
-  for (var i = 0; i < value; i++) {
-    var rps = document.getElementsByClassName("rps_img")[i].src;
-    if (String(rps).slice(-8) == "gray.svg") {
-      document.getElementsByClassName("rps_name")[i].readOnly = false;
-      document.getElementsByClassName("rps_menu")[i].readOnly = false;
-      document.getElementsByClassName("item_container")[
-        i
-      ].style.backgroundColor = "#f9f8ec";
-      document.getElementsByClassName("rps_menu")[i].style.backgroundColor =
-        "#ebeb99";
-      document.getElementsByClassName("edit_img")[i].style.display = "block";
-      rps = String(rps).slice(0, -9);
-      console.log(rps);
-      document.getElementsByClassName("rps_img")[i].src = rps + ".svg";
-      document.getElementsByClassName("check_img")[i].style.visibility =
-        "hidden";
-      document.getElementsByClassName("item_container")[i].style.border =
-        "hidden";
-    }
-  }
-
-  document
-    .querySelector("#next_img")
-    .setAttribute("src", "./img_rps/next_button_gray.svg");
-  document.getElementById("next_img").removeAttribute("onClick");
 }

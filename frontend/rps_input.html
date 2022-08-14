@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>rps</title>
     <link rel="stylesheet" href="./rps_input.css" />
+    <link
+      href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
+      rel="stylesheet"
+    />
     <script src="./rps_input.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
   <body>
     <div id="container">
@@ -20,14 +25,24 @@
         </button>
       </back_button>
       <div id="num_container">
-        <button type="button" class="image" onClick="removeItem()">
+        <button
+          id="minus_button"
+          type="button"
+          class="image"
+          onClick="removeItem()"
+        >
           <img src="./img_rps/minus_btn.svg" />
         </button>
         <div id="plate_container">
           <span id="num">2</span>
-          <img id="plate" src="./img_rps/input_plate.svg" />
+          <img id="plate" src="./img_rps/rps_input_plate.svg" />
         </div>
-        <button type="button" class="image" onClick="addItem()">
+        <button
+          id="plus_button"
+          type="button"
+          class="image"
+          onClick="addItem()"
+        >
           <img src="./img_rps/plus_btn.svg" />
         </button>
       </div>
@@ -35,7 +50,7 @@
       <div id="inputItem">
         <div class="item_box" id="item1">
           <div class="item_container">
-            <img class="rps_img" src="./img_rps/img_r.svg" width="60px" />
+            <img class="rps_img" src="./img_rps/img_r_gray.svg" width="60px" />
             <input class="rps_name" placeholder="이름 입력" />
             <input class="rps_menu" placeholder="메뉴 입력" />
             <button type="button" class="image">
@@ -43,15 +58,20 @@
                 class="edit_img"
                 src="./img_rps/edit_button.svg"
                 width="35px"
-                onClick="saveValue(1)"
+                onClick="editValue(1)"
               />
             </button>
           </div>
-          <img class="check_img" src="./img_rps/img_check.svg" width="80px" />
+          <img
+            class="check_img"
+            src="./img_rps/img_check.svg"
+            width="80px"
+            onClick="saveValue(1)"
+          />
         </div>
         <div class="item_box" id="item2">
           <div class="item_container">
-            <img class="rps_img" src="./img_rps/img_s.svg" width="60px" />
+            <img class="rps_img" src="./img_rps/img_s_gray.svg" width="60px" />
             <input class="rps_name" placeholder="이름 입력" />
             <input class="rps_menu" placeholder="메뉴 입력" />
             <button type="button" class="image">
@@ -59,11 +79,16 @@
                 class="edit_img"
                 src="./img_rps/edit_button.svg"
                 width="35px"
-                onClick="saveValue(2)"
+                onClick="editValue(2)"
               />
             </button>
           </div>
-          <img class="check_img" src="./img_rps/img_check.svg" width="80px" />
+          <img
+            class="check_img"
+            src="./img_rps/img_check.svg"
+            width="80px"
+            onClick="saveValue(2)"
+          />
         </div>
       </div>
       <button type="button" class="image">

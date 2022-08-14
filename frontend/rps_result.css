@@ -1,0 +1,88 @@
+body {
+  height: 7vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#container {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+}
+
+back_button {
+  position: relative;
+  margin-right: 65vw;
+  margin-top: 10px;
+}
+
+.image {
+  background-color: white;
+  border: 0ch;
+  text-align: center;
+}
+
+#rps {
+  width: 70px;
+  margin-top: -40px;
+  margin-bottom: 10px;
+}
+
+#img_container {
+  margin: 30px auto;
+  display: inline-flex;
+  flex-direction: row;
+}
+
+#menu_box {
+  margin-top: 10px;
+}
+
+#menu_container {
+  margin: 0 50px;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+#menu_img {
+  margin: 0 auto;
+  width: 150px;
+  height: 120px;
+  border-radius: 40%;
+  border: none;
+  object-fit: cover;
+}
+
+#menu {
+  margin: 16px 0;
+  font-family: "NanumSquareAcr";
+  font-weight: 800;
+  font-size: 35px;
+  color: #494646;
+}
+
+#name {
+  font-family: "NanumSquareAcr";
+  font-weight: 700;
+  font-size: 24px;
+  color: #666666;
+}
+
+#name span {
+  font-family: "NanumSquareAcr";
+  font-weight: 800;
+  font-size: 24px;
+  color: #e06437;
+}
+
+#name_deco {
+  width: 220px;
+  margin: 0 auto;
+  margin-top: 2px;
+}
+
+share_button {
+  margin-top: 50px;
+}
