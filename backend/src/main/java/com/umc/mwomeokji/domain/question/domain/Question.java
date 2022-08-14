@@ -1,12 +1,14 @@
 package com.umc.mwomeokji.domain.question.domain;
 
+import com.umc.mwomeokji.domain.questiondish.domain.QuestionDish;
 import com.umc.mwomeokji.global.entity.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -18,14 +20,13 @@ public class Question extends BaseEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String category;
-
-    @Column(nullable = false)
     private String question;
 
+    @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<QuestionDish> questionDishList = new ArrayList<>();
+
     @Builder
-    public Question(String category, String question){
-        this.category = category;
+    public Question(String question) {
         this.question = question;
     }
 }
