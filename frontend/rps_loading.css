@@ -1,0 +1,44 @@
+body {
+  height: 7vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#container {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+}
+
+back_button {
+  position: relative;
+  margin-right: 65vw;
+  margin-top: 10px;
+}
+
+.image {
+  background-color: white;
+  border: 0ch;
+  text-align: center;
+}
+
+#rps_loading_img {
+  margin: 0 auto;
+  text-align: center;
+  width: 220px;
+  margin-top: 150px;
+}
+
+#rps_loading_text {
+  margin: 0 auto;
+  color: #666666;
+  font-weight: 400;
+  font-size: 20px;
+  display: inline-block;
+  white-space: nowrap;
+  position: relative;
+  margin-top: 20px;
+  font-family: "NanumSquareAcr";
+}

@@ -103,7 +103,7 @@ function saveValue(itemNum) {
 }
 
 function hrefLink() {
-  location.href = "./rps_result.html";
+  location.href = "./rps_loading.html";
 }
 
 function blockNext() {
