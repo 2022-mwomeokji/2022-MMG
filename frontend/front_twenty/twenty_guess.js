@@ -212,7 +212,7 @@ function choose(){
         //result(big_value_arr[ball1]); },1000);
         //result();
     }, 3000); // 로딩 -> 결과
-  }, 6000); // 질문->로딩
+  }, 3000); // 질문->로딩
 
   //location.href='./twenty_loading.html'
   }

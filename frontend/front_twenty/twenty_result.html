@@ -12,9 +12,14 @@
       href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
       rel="stylesheet"
       />
+    <script src="..\front_head\includeHTML.js"></script>
+    <link rel="stylesheet" href="..\front_head\style.css" />
+    <link rel="stylesheet" href="../front_head/style.css" />
 </head>
 
 <body>
+    <div include-html="..\front_head\nav.html"></div>
+    <script> includeHTML(); </script>
     <a name="Top"></a>
     
         <button type="button" class="image" id = "back_button" onClick=history.back(); width="auto", height="40">

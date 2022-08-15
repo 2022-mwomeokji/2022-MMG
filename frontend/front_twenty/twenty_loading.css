@@ -9,8 +9,6 @@ body{
 }
 
 top_botton{
-    margin-top: 100px;
-    margin-bottom: 100px;
     text-align: center;
 }
 
@@ -21,7 +19,6 @@ text{
     text-align: center;
     top: 50px;
     right: 190px;
-    
 }
 
 
@@ -37,7 +34,7 @@ text{
 
 #back_botton{
     position: relative;
-    bottom : 10px;
+    bottom : 30px;
     right: 350px;
 }
 

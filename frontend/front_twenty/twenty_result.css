@@ -24,12 +24,13 @@ body{
 #back_button{
     position: relative;
     right: 350px;
+    top: 30px;
 }
 food_text{
     color:orange;
     position: relative;
     top: 0px;
-    margin-top: 80px;
+    margin-top: 50px;
     font-family: "NanumSquareAcr";
     font-size: 48px;
 }
