@@ -52,10 +52,6 @@ function addItem() {
       document.getElementsByClassName("rps_menu")[i].value = arr[i][1];
     }
   }
-
-  document.getElementsByClassName("rps_name")[value].readOnly = false;
-
-  arr = [];
 }
 
 function removeItem() {
@@ -175,3 +171,23 @@ function finishPage() {
     localStorage.setItem("src", src);
   }
 }
+
+$(function () {
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 250) {
+      console.log($(this).scrollTop());
+      $("#top_button").fadeIn();
+    } else {
+      $("#top_button").fadeOut();
+    }
+  });
+  $("#top_button").click(function () {
+    $("html, body").animate(
+      {
+        scrollTop: 0,
+      },
+      400
+    );
+    return false;
+  });
+});
