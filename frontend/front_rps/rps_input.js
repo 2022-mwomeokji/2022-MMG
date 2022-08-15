@@ -163,14 +163,13 @@ function finishPage() {
     winner_src = document.getElementsByClassName("rps_img")[randNum].src;
     winner_src = String(winner_src).slice(0, -4);
     winner_src = winner_src + "_sign.svg";
-    if (!winner_name) {
+    if (winner_name == "") {
       winner_name = winner_menu + " 먹고 싶은 사람";
     }
   }
 }
 
 function hrefLink() {
-  location.href = "./rps_loading.html";
   // 서버 연결
   let params = {
     name: winner_menu,
@@ -197,6 +196,8 @@ function hrefLink() {
   localStorage.setItem("name", winner_name);
   localStorage.setItem("menu", winner_menu);
   localStorage.setItem("src", winner_src);
+
+  location.href = "./rps_loading.html";
 }
 
 $(function () {
