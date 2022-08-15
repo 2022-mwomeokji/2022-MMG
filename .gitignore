@@ -5,3 +5,6 @@ build
 
 # secrets #
 application-aws.yml
+
+# vscode #
+.vscode
