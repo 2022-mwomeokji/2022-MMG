@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+  
+  }
+
+.image {
+    border: 0ch;
+    margin: 0px;
+    background-color: white;
+    text-align: center;
+    position: relative;
+}
+
+#logo_word{
+    position: relative;
+
+}
+
+#back_button{
+    position: relative;
+    right: 350px;
+}
+food_text{
+    color:orange;
+    position: relative;
+    top: 0px;
+    margin-top: 80px;
+    font-family: "NanumSquareAcr";
+    font-size: 48px;
+}
+
+connect_line{
+    position: relative;
+    height: 600px;
+}
+button{
+    border: 0px;
+    margin: 0px;
+}
+bottom_button{
+    vertical-align: middle;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    width: 90%;
+    display: flex;
+}
+
+#left{
+    flex: 1;
+
+    border: 0px;
+    margin: 1px;
+    position: relative;
+    left: 200px;  
+}
+
+#right{
+    flex: 1;
+
+    border: 0px;
+    margin: 1px;
+
+    position: relative;
+    left: 00px;
+}
+
+#go_top{
+    position: relative;
+    left: 700px;
+}
+
+.yellow_button{
+    position: absolute;
+    text-align: center;
+    z-index: 2;
+    top: 1054px;
+    left: 979px;
+    opacity:0.5;
+}

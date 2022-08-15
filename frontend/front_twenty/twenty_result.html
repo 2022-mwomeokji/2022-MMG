@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>twenty_result</title>
+    <link rel="stylesheet" href="./twenty_result.css">
+    <script type="module" src="./twenty_guess.js"> </script>
+    <!--아래부분은 추가된 부분-->
+    <link
+      href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
+      rel="stylesheet"
+      />
+</head>
+
+<body>
+    <a name="Top"></a>
+    
+        <button type="button" class="image" id = "back_button" onClick=history.back(); width="auto", height="40">
+            <img  src=".\img_file_twenty\twenty_guess_sec_arrow_back.svg" width="auto", height="50">
+        </button>
+
+
+        <span class="image" id = "logo_word">
+            <img  src=".\img_file_twenty\twenty_main_logo_new.svg" width="auto", height="90">
+        </span>
+  
+        <food_text id="food_name">
+            음식명
+        </food_text>
+
+        <wave>
+            <img src=".\img_file_twenty\twenty_result_wave.svg">    
+        </wave>
+                
+
+        <food_img>
+            음식사진
+        </food_img>
+        <!--
+        <connect_line>
+            <img src=".\img_file_twenty\twenty_result_connect_line.svg">
+        </connect_line>            
+
+        <bottom_button>
+            <button class="image" id="left" style="display: inline-block">
+                <img src=".\img_file_twenty\twenty_result_check_recipe.svg">
+            </button>
+            <button class="image" id="right" style="display: inline-block">
+                <img src=".\img_file_twenty\twenty_result_restaurant_list.svg">
+            </button>
+        </bottom_button>
+
+        <a href="#Top" id="go_top">
+            <img src=".\img_file_twenty\twenty_result_go_top.svg">
+        </a>            
+        -->
+
+        <connect_top>
+            <img src=".\img_file_twenty\twenty_result_connect_top.svg">
+        </connect_top>
+
+        <button class="image">
+            <img src=".\img_file_twenty\twenty_result_check_recipe2.svg">
+            <button class="yellow_button" onclick="clicked()" class="image">
+                <img src=".\img_file_twenty\twenty_result_yellow_button.svg"> 
+            </button>
+        </button>
+
+        <connect_bottom>
+            <img src=".\img_file_twenty\twenty_result_connect_bottom.svg">
+        </connect_bottom>
+
+        <button class="image">
+            <img src=".\img_file_twenty\twenty_result_restaurant_list2.svg">
+        </button>
+
+</body>

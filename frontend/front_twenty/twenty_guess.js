@@ -12,7 +12,7 @@ function sleep(ms) {
 
 //fetch 시작
 async function getjson(){
-  const response = await fetch(`http://localhost:8081/question-dishes`);
+  const response = await fetch(`http://ec2-43-200-137-107.ap-northeast-2.compute.amazonaws.com:8081/question-dishes`);
   const data = await response.json();
   console.log(data.dishNameResponseList);
   food_data = data;
@@ -161,7 +161,7 @@ function nurmal(){
   console.log(arr);
 }
 
-var chose_food=0;
+let chose_food=1;
 
 function choose(){
   const resultElement = document.getElementById('guess_number');
@@ -184,30 +184,36 @@ function choose(){
 	    //console.log(element[0]+ ": " + element[1]);
     }
 
-    console.log(sorted_arr)
+    //console.log(sorted_arr);
 
-    console.log("-----------");
-
+    //console.log("-----------");
+    console.log("big "+big_value_arr);
     //console.log(big_value_arr);
     var num = Math.random() * length; // Math 앞에 대문자
     var ball1 = parseInt(num); // parseInt 철자 주의
     //console.log(big_value_arr[ball1]);
-    chose_food=big_value_arr[ball1];
+    chose_food=big_value_arr[ball1]; 
+    console.log("---------음식id = "+chose_food);
+    localStorage.setItem("food_code", chose_food);
+    chose_succuess(chose_food);
     
-    chose_succuess(ball1);
-    
+    //big_value_arr : 질문의 대답과 가장 연관이 많은 음식들이 저장된 배열
+    //chose_food : big_value_arr에서 랜덤으로 뽑힌 한 음식의 id값
   
-  async function chose_succuess(food_id){
-  //console.log("123");
-  var result_url = "http://localhost:8081/dishes/";
-  const response = await fetch(result_url+food_id);
-  const data = await response.json();
-  console.log(data);
 
-  }
   //module.export = {chose_food}
-  setTimeout(function() {  location.href='./twenty_loading.html'; }, 4000);
-  setTimeout(function() {  location.href='./twenty_result.html'; }, 2000);
+
+  setTimeout(function() {  
+    location.href='./twenty_loading.html';
+    chose_succuess(chose_food);
+    setTimeout(function() {
+      location.href='./twenty_result.html';
+      //setTimeout(function() {  
+        //result(big_value_arr[ball1]); },1000);
+        //result();
+    }, 3000); // 로딩 -> 결과
+  }, 6000); // 질문->로딩
+
   //location.href='./twenty_loading.html'
   }
   else if(number<8){
@@ -246,4 +252,26 @@ function count(type)  {
     resultElement.innerText = number+".";
   }
 }
+chose_succuess();
+result();
+function result(name){
+  const resultElement = document.getElementById("food_name");
+  let food_name = resultElement.innerText;
+  resultElement.innerText = "'"+name+"'";
+  console.log("id "+name);
+}
 
+async function chose_succuess(food_id){
+  food_id = localStorage.getItem("food_code");
+  //console.log("123");
+  var result_url = "http://ec2-43-200-137-107.ap-northeast-2.compute.amazonaws.com:8081/dishes/";
+  const response = await fetch(result_url+food_id);
+  const data = await response.json();
+  console.log(data);
+  result(data.name);
+
+  }
+
+  function clicked(){
+    window.alert("clicked");
+  }
