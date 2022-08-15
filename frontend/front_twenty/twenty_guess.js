@@ -2,6 +2,8 @@
 var keys=[];
 var food_named=[];
 var food_data=[];
+var question_length=[];
+//let number=0;
 //export var chose_food=0;
 
 
@@ -12,33 +14,34 @@ function sleep(ms) {
 
 //fetch 시작
 async function getjson(){
-  const response = await fetch(`http://ec2-43-200-137-107.ap-northeast-2.compute.amazonaws.com:8081/question-dishes`);
+  const response = await fetch(`http://ec2-43-200-137-107.ap-northeast-2.compute.amazonaws.com:8081/questions/dishes`);
   const data = await response.json();
-  console.log(data.dishNameResponseList);
+  console.log(data.dishes);
   food_data = data;
   for(key in data) {
     keys.push(key);
       //console.log(key+ data[key]);
-      //console.log(key+ [key].question);
+      //console.log("key "+ data[key].question);
+      //console.log("key "+ data[key].question.length);
+      question_length.push(data[key].question.length);
       //질문들을 알 수 있음
   }
+  
   for(var key in data) {
     keys.push(key);
       //console.log(key+ data[key]);
-      //console.log("메뉴 "+key+ data[key].dishNameResponseList); //out 질문에 대한 음식 갯수체크정도
+      //console.log("메뉴 "+key+ data[key].dishes); //out 질문에 대한 음식 갯수체크정도
       //질문들을 알 수 있음
-      for(var smallkey in data[key].dishNameResponseList){
-        food_named.push(smallkey);
-        //console.log(smallkey+ data[key].dishNameResponseList[smallkey].name);
-        //data[key].dishNameResponseList[1].name
+      ///for(var smallkey in data[key].dishes){
+        ///food_named.push(smallkey);
+        //console.log(food_named);
+        //console.log(smallkey+ data[key].dishes[smallkey].name);
+        //data[key].dishes[1].name
         //key값에 포함된 음식들을 알 수 있음
-      }
+      ///}
+  }
+  //console.log("test "+food_named[0].dishes[smallkey].name)
 
-  }
-  //console.log("test "+food_named[0].dishNameResponseList[smallkey].name)
-  for(i in keys){
-    //console.log([i].question);
-  }
 
   
   data.forEach(o => {
@@ -50,6 +53,13 @@ async function getjson(){
       }
   });const unique = [...new Set(data.map(item => item.group))];
 
+  console.log("질문 0부터 10까지");
+  for(var i=0 ; i<10 ; i++){
+    console.log("i="+i+" "+food_data[rst[i]].question);
+  }
+
+
+
   return data;
 }
 //fetch 끝
@@ -57,20 +67,21 @@ async function getjson(){
 
 
 var guess_food_data = getjson();
-
+/*
 console.log("data = "+guess_food_data);
 var keys=[];
 for(key in guess_food_data) {
   keys.push(key);
     console.log(key+ guess_food_data[key]);
+    console.log("11");
     //console.log(key+ [key].question);
     //질문들을 알 수 있음
 }
+*/
 
 
 
-
-var rst=[];
+var rst=[]; // 질문들이 랜덤하게 들어있고 안에 그 순서가 지정되있다 
 function getRandom(min, max) {
   return Math.floor((Math.random()*(max-min+1))+min);
   }
@@ -80,46 +91,65 @@ function getRandom(min, max) {
     if (max-min+1<count) return;
     while(1){
       var index=getRandom(min,max);
-  
       // 중복 여부를 체크
       if (rst.indexOf(index) > -1) {
         continue;
       }
-  
       rst.push(index);
-  
-      // 원하는 배열 갯수가 되면 종료
       if (rst.length == count) {
         break;
       }
     }
-  }
 
+  }
+console.log("guestion_list random")
 
 getRandomArray(0,9,10);
-for(var i=0 ; i<10 ; i++){
-  console.log(rst[i]);
-}
-//배열 랜덤으로 만드는 부분
-
+//next_guess();
+//배열 랜덤으로 만드는 부분(0부터 9까지 10개의 수를 배열)
+console.log("배열 "+rst);
 
 var guess_order=0;
+
 function next_guess(){
+  if(guess_order==0){
+    guess_order+=1;
+    const guessElement = document.getElementById('guess_text');
+    guessElement.innerText = food_data[rst[guess_order]].question;
+    return;
+  }
+  
+  console.log("next guess guess_order = "+guess_order);
+  console.log(food_data[rst[guess_order+1]].question);
   data=getjson();
   const guessElement = document.getElementById('guess_text');
+  console.log("글자수를 입력받았습니다."+guess_order);
   console.log(guessElement); 
-  let guess_text = guessElement.innerText;
-  console.log(guess_text);
+  //let guess_text = guessElement.innerText;
+  //console.log(guess_text);
+  /*
   console.log("--");
-  guessElement.innerText = food_data[rst[guess_order]].question;
-  //console.log(food_data[guess_order].question);
+  console.log("guess_order "+guess_order);
+  console.log("rst guess order "+rst[guess_order]);
+  console.log("글자수 = "+question_length[rst[guess_order]]);
+  var target = document.getElementById("guess_text");
+  var length=question_length[rst[guess_order]];
+  */
+
+  guessElement.innerText = food_data[rst[guess_order+1]].question;
   guess_order=guess_order+1;
+
+
+
+
+  //console.log(food_data[guess_order].question);
+  
   //console.log("guess_order "+guess_order);
 /*
   for(key in food_data) {
     console.log(food_data[key].question);
-      for(smallkey in food_data[key].dishNameResponseList){
-        console.log(smallkey+ food_data[key].dishNameResponseList[smallkey].name);
+      for(smallkey in food_data[key].dishes){
+        console.log(smallkey+ food_data[key].dishes[smallkey].name);
         //질문마다 속해있는 음식 말해줌 
 
       }
@@ -130,7 +160,7 @@ function next_guess(){
 var arr = {};
 function make_arr(){
   
-  for( var order = 1 ; order <100 ; order++){
+  for( var order = 1 ; order <106 ; order++){
     arr[order] = 0;
   }
   console.log("arr");
@@ -140,32 +170,73 @@ make_arr();
 
 
 function like(){
-  for(smallkey in food_data[rst[guess_order]].dishNameResponseList){
-    console.log(food_data[rst[guess_order]].dishNameResponseList[smallkey].id);
+  if(guess_order==0){
+    return;
+  }
+  console.log("like guess_order = "+guess_order);
+  console.log(food_data[rst[guess_order]].question);
+  for(var i =0 ; i<guess_order ; i++){
+    //console.log("rst "+rst[guess_order]);
+    //console.log("i= "+i)
+  }
+
+  for(smallkey in food_data[rst[guess_order]].dishes){
+    console.log(food_data[rst[guess_order]].dishes[smallkey].name+" "+food_data[rst[guess_order]].dishes[smallkey].id);
+    
     //질문마다 속해있는 음식 말해줌
-    arr[food_data[rst[guess_order]].dishNameResponseList[smallkey].id]+=1;
+    arr[food_data[rst[guess_order]].dishes[smallkey].id]+=1;
+    console.log("arr "+arr[food_data[rst[guess_order]].dishes[smallkey].id])
   }
   console.log(arr);
 }
 
 function dislike(){
-  for(smallkey in food_data[rst[guess_order]].dishNameResponseList){
-    console.log(food_data[rst[guess_order]].dishNameResponseList[smallkey].id);
+
+
+  for(var i = guess_order ; i<guess_order ; i++){
+    console.log("rst "+rst[guess_order]);
+  }
+  for(smallkey in food_data[rst[guess_order]].dishes){
+    console.log(food_data[rst[guess_order]].dishes[smallkey].name+" "+food_data[rst[guess_order]].dishes[smallkey].id);
     //질문마다 속해있는 음식 말해줌
-    arr[food_data[rst[guess_order]].dishNameResponseList[smallkey].id]-=1;
+    arr[food_data[rst[guess_order]].dishes[smallkey].id]-=1;
+    console.log("arr "+arr[food_data[rst[guess_order]].dishes[smallkey].id])
   }
   console.log(arr);
+
 }
 
 function nurmal(){
   console.log(arr);
 }
 
+function guess_back(){
+  const guessElement = document.getElementById('guess_text');
+  guess_order-=1;
+  for(smallkey in food_data[rst[guess_order]].dishes){
+    console.log(food_data[rst[guess_order]].dishes[smallkey].id);
+    //질문마다 속해있는 음식 말해줌
+    arr[food_data[rst[guess_order]].dishes[smallkey].id]-=1;
+  }
+  console.log()
+  for(smallkey in food_data[rst[guess_order]].dishes){
+    console.log(food_data[rst[guess_order]].dishes[smallkey].id);
+    //질문마다 속해있는 음식 말해줌
+    arr[food_data[rst[guess_order]].dishes[smallkey].id]-=1;
+  }
+  guessElement.innerText = food_data[rst[guess_order]].question;
+  console.log(arr);
+}
+
+
+
 let chose_food=1;
 
 function choose(){
   const resultElement = document.getElementById('guess_number');
-  let number = resultElement.innerText;
+  number = resultElement.innerText;
+
+
   if(number>7){
     let sorted = Object.entries(arr).sort((a, b) => b[1] - a[1]);
     var sorted_arr = [];
@@ -225,6 +296,9 @@ function choose(){
 
 
 function count(type)  {
+  if(guess_order==0){
+    return;
+  }
   // 결과를 표시할 element
   const resultElement = document.getElementById('guess_number');
   // 현재 화면에 표시된 값
@@ -257,6 +331,7 @@ result();
 function result(name){
   const resultElement = document.getElementById("food_name");
   let food_name = resultElement.innerText;
+  food_name=1;
   resultElement.innerText = "'"+name+"'";
   console.log("id "+name);
 }
