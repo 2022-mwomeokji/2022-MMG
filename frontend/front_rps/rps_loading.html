@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>rps</title>
     <link rel="stylesheet" href="./rps_loading.css" />
+    <link rel="stylesheet" href="../front_head/style.css" />
     <script src="./rps_loading.js"></script>
     <link
       href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
       rel="stylesheet"
     />
+    <script src="../front_head/includeHTML.js"></script>
     <meta http-equiv="refresh" content="5; url=./rps_result.html" />
   </head>
 
   <body>
     <div id="container">
+      <div include-html="../front_head/nav.html"></div>
       <back_button>
         <button
           type="button"
@@ -28,5 +31,8 @@
       <img id="rps_loading_img" src="./img_rps/rps_loading_img.svg" />
       <span id="rps_loading_text">가위바위보 진행중...</span>
     </div>
+    <script>
+      includeHTML();
+    </script>
   </body>
 </html>

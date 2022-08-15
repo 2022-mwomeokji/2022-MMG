@@ -1,5 +1,4 @@
 body {
-  height: 7vh;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -7,7 +6,6 @@ body {
 }
 
 .container {
-  height: 10vh;
   display: flex;
   flex-direction: column;
 }
@@ -15,14 +13,13 @@ body {
 exit_img {
   position: relative;
   margin-right: 65vw;
-  margin-top: 10px;
+  margin-top: 2vh;
 }
 
 main_text {
   margin: 0 auto;
-  margin-top: -20px;
+  margin-top: -3vh;
   text-align: center;
-  width: 268px;
 }
 
 .image {
@@ -34,12 +31,11 @@ main_text {
 main_logo {
   margin: 0 auto;
   text-align: center;
-  width: 220px;
-  margin-top: 50px;
+  margin-top: 4vh;
 }
 
 small_text {
-  margin: 0 auto;
+  margin: 2vh auto;
   color: #494646;
   font-weight: 400;
   font-size: 14px;
@@ -47,12 +43,11 @@ small_text {
   white-space: nowrap;
   position: relative;
   width: 300px;
-  margin-top: 40px;
   font-family: "NanumSquareAcr";
 }
 
 #start_botton {
   text-align: center;
   position: relative;
-  top: 50px;
+  margin-bottom: 3vh;
 }

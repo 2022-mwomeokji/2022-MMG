@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>rps</title>
     <link rel="stylesheet" href="./rps_main.css" />
+    <link rel="stylesheet" href="../front_head/style.css" />
     <link
       href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
       rel="stylesheet"
     />
+    <script src="../front_head/includeHTML.js"></script>
   </head>
 
   <body>
     <div class="container">
+      <div include-html="../front_head/nav.html"></div>
       <exit_img>
         <button type="button" class="image">
           <img src="./img_rps/Ic_Exit.svg" />
@@ -45,5 +48,8 @@
         </button>
       </start_button>
     </div>
+    <script>
+      includeHTML();
+    </script>
   </body>
 </html>

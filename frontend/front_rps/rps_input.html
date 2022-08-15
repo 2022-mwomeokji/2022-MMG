@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>rps</title>
     <link rel="stylesheet" href="./rps_input.css" />
+    <link rel="stylesheet" href="../front_head/style.css" />
     <link
       href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
       rel="stylesheet"
@@ -15,9 +16,11 @@
       src="http://code.jquery.com/jquery-latest.js"
     ></script>
     <script src="./rps_input.js"></script>
+    <script src="../front_head/includeHTML.js"></script>
   </head>
   <body>
     <div id="container">
+      <div include-html="../front_head/nav.html"></div>
       <back_button>
         <button
           type="button"
@@ -49,7 +52,7 @@
           <img src="./img_rps/plus_btn.svg" />
         </button>
       </div>
-      <hr />
+      <hr id="plate_container_hr" />
       <div id="inputItem">
         <div class="item_box" id="item1">
           <div class="item_container">
@@ -99,5 +102,8 @@
       </button>
     </div>
     <a id="top_button" href="#"><img src="img_rps/top_button.svg" /></a>
+    <script>
+      includeHTML();
+    </script>
   </body>
 </html>

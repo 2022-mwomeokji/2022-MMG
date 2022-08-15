@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>rps</title>
     <link rel="stylesheet" href="./rps_result.css" />
+    <link rel="stylesheet" href="../front_head/style.css" />
     <script src="./rps_result.js"></script>
+    <script src="../front_head/includeHTML.js"></script>
     <link
       href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
       rel="stylesheet"
@@ -15,6 +17,7 @@
 
   <body>
     <div id="container">
+      <div include-html="../front_head/nav.html"></div>
       <back_button>
         <button
           type="button"
@@ -49,5 +52,8 @@
         </button>
       </share_button>
     </div>
+    <script>
+      includeHTML();
+    </script>
   </body>
 </html>
