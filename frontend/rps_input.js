@@ -1,4 +1,8 @@
 var value = 2;
+var winner_name;
+var winner_menu;
+var winner_src;
+localStorage.clear();
 
 function addItem() {
   document
@@ -98,10 +102,6 @@ function saveValue(itemNum) {
   finishPage();
 }
 
-function hrefLink() {
-  location.href = "./rps_loading.html";
-}
-
 function blockNext() {
   var block = 0;
   for (var i = 0; i < value; i++) {
@@ -158,18 +158,45 @@ function finishPage() {
       .setAttribute("src", "./img_rps/next_button.svg");
     document.getElementById("next_img").setAttribute("onClick", "hrefLink();");
     let randNum = Math.floor(Math.random() * value);
-    var name = document.getElementsByClassName("rps_name")[randNum].value;
-    var menu = document.getElementsByClassName("rps_menu")[randNum].value;
-    var src = document.getElementsByClassName("rps_img")[randNum].src;
-    src = String(src).slice(0, -4);
-    src = src + "_sign.svg";
-    if (!name) {
-      name = menu + " 먹고 싶은 사람";
+    winner_name = document.getElementsByClassName("rps_name")[randNum].value;
+    winner_menu = document.getElementsByClassName("rps_menu")[randNum].value;
+    winner_src = document.getElementsByClassName("rps_img")[randNum].src;
+    winner_src = String(winner_src).slice(0, -4);
+    winner_src = winner_src + "_sign.svg";
+    if (!winner_name) {
+      winner_name = winner_menu + " 먹고 싶은 사람";
     }
-    localStorage.setItem("name", name);
-    localStorage.setItem("menu", menu);
-    localStorage.setItem("src", src);
   }
+}
+
+function hrefLink() {
+  location.href = "./rps_loading.html";
+  // 서버 연결
+  let params = {
+    name: winner_menu,
+  };
+
+  let query = Object.keys(params).map(
+    (k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k])
+  );
+
+  let url =
+    "http://ec2-43-200-137-107.ap-northeast-2.compute.amazonaws.com:8081/dishes?" +
+    query;
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.imageUrl);
+      localStorage.setItem("menuUrl", data.imageUrl);
+    })
+    .catch(function (error) {
+      console.log("request failed", error);
+    });
+
+  localStorage.setItem("name", winner_name);
+  localStorage.setItem("menu", winner_menu);
+  localStorage.setItem("src", winner_src);
 }
 
 $(function () {
