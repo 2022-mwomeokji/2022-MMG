@@ -109,18 +109,13 @@ getRandomArray(0,9,10);
 //배열 랜덤으로 만드는 부분(0부터 9까지 10개의 수를 배열)
 console.log("배열 "+rst);
 
-var guess_order=0;
+var guess_order=-1;
 
 function next_guess(){
-  if(guess_order==0){
-    guess_order+=1;
-    const guessElement = document.getElementById('guess_text');
-    guessElement.innerText = food_data[rst[guess_order]].question;
-    return;
-  }
+
   
   console.log("next guess guess_order = "+guess_order);
-  console.log(food_data[rst[guess_order+1]].question);
+  console.log(food_data[rst[guess_order]].question);
   data=getjson();
   const guessElement = document.getElementById('guess_text');
   console.log("글자수를 입력받았습니다."+guess_order);
@@ -136,8 +131,8 @@ function next_guess(){
   var length=question_length[rst[guess_order]];
   */
 
-  guessElement.innerText = food_data[rst[guess_order+1]].question;
-  guess_order=guess_order+1;
+  guessElement.innerText = food_data[rst[guess_order]].question;
+  
 
 
 
@@ -170,9 +165,8 @@ make_arr();
 
 
 function like(){
-  if(guess_order==0){
-    return;
-  }
+  
+  guess_order=guess_order+1;
   console.log("like guess_order = "+guess_order);
   console.log(food_data[rst[guess_order]].question);
   for(var i =0 ; i<guess_order ; i++){
@@ -191,7 +185,7 @@ function like(){
 }
 
 function dislike(){
-
+  guess_order=guess_order+1;
 
   for(var i = guess_order ; i<guess_order ; i++){
     console.log("rst "+rst[guess_order]);
@@ -296,9 +290,6 @@ function choose(){
 
 
 function count(type)  {
-  if(guess_order==0){
-    return;
-  }
   // 결과를 표시할 element
   const resultElement = document.getElementById('guess_number');
   // 현재 화면에 표시된 값
