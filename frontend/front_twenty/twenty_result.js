@@ -9,6 +9,7 @@ function result(name){
     resultElement.innerText = "'"+name+"'";
     console.log("id "+name);
     food_id = localStorage.getItem("food_code");
+
   }
 
 async function chose_succuess(food_id){
@@ -20,6 +21,7 @@ async function chose_succuess(food_id){
     const data = await response.json();
     console.log(data.name);
     result(data.name);
-  
+    var img_url = data.imageUrl;
+    document.getElementById("food_img").src= img_url;
     }
 chose_succuess(chose_food);
