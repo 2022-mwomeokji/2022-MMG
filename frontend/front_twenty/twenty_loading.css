@@ -37,8 +37,8 @@ text{
 
 #back_botton{
     position: relative;
+    right: 430px;
     top: 30px;
-    right: 350px;
 }
 
 loading{

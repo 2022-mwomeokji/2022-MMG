@@ -1,3 +1,1 @@
-setTimeout(function() {  location.href='./twenty_result.html'; }, 2000);
-
-//console.log("3");
+setTimeout(function() {  location.href='./twenty_result.html'; }, 4000);

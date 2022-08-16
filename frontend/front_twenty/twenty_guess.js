@@ -132,17 +132,12 @@ var guess_order=0;
 var clicked_count=0;
 
 function next_guess(){
-  console.log("시작할때 guess 발동") ;
-  console.log(arr);
   clicked_count+=1;
-  console.log("clicked_count "+clicked_count);
-  console.log("next guess guess_order = "+guess_order);
-  
   data=getjson();
   const guessElement = document.getElementById('guess_text');
 
   guessElement.innerText = food_data[rst[guess_order]].question;
-  
+
 }
 var arr = {};
 function make_arr(){
@@ -166,43 +161,50 @@ function like(){
     return;
   }
   
-else{
+  else{
 
-  for(var i =0 ; i<guess_order ; i++){
-    //console.log("rst "+rst[guess_order]);
-    //console.log("i= "+i)
-  }
-
-  for(smallkey in food_data[rst[guess_order-2]].dishes){
-    //console.log("guess order "+guess_order-2);
-    console.log("guess order "+food_data[rst[guess_order-2]].question);
-    console.log(food_data[rst[guess_order-2]].dishes[smallkey].name+" "+food_data[rst[guess_order-2]].dishes[smallkey].id);
+    for(smallkey in food_data[rst[guess_order-2]].dishes){
+      //console.log("guess order "+guess_order-2);
+      console.log("guess order "+food_data[rst[guess_order-2]].question);
+      console.log(food_data[rst[guess_order-2]].dishes[smallkey].name+" "+food_data[rst[guess_order-2]].dishes[smallkey].id);
     
-    //질문마다 속해있는 음식 말해줌
-    arr[food_data[rst[guess_order-2]].dishes[smallkey].id]+=1;
-    console.log("arr "+arr[food_data[rst[guess_order-2]].dishes[smallkey].id])
-  }
-  console.log("결과");
-  console.log(arr);
+      //질문마다 속해있는 음식 말해줌
+      arr[food_data[rst[guess_order-2]].dishes[smallkey].id]+=1;
+      console.log("arr "+arr[food_data[rst[guess_order-2]].dishes[smallkey].id])
+    }
+    console.log("결과");
+    console.log(arr);
 
-}
+  }
 
 }
 
 function dislike(){
   guess_order=guess_order+1;
-
-  for(var i = guess_order ; i<guess_order ; i++){
-    console.log("rst "+rst[guess_order]);
+  if(clicked_count<=1){
+    //console.log("좀만 더 해주세요");
+    //const guessElement = document.getElementById('guess_text');
+    //guessElement.innerText = food_data[rst[guess_order+1]].question;
+    // 수정할 부분
+    console.log(arr);
+    return;
   }
-  for(smallkey in food_data[rst[guess_order]].dishes){
-    console.log(food_data[rst[guess_order]].dishes[smallkey].name+" "+food_data[rst[guess_order]].dishes[smallkey].id);
-    //질문마다 속해있는 음식 말해줌
-    arr[food_data[rst[guess_order]].dishes[smallkey].id]-=1;
-    console.log("arr "+arr[food_data[rst[guess_order]].dishes[smallkey].id])
-  }
-  console.log(arr);
+  
+  else{
 
+    for(smallkey in food_data[rst[guess_order-2]].dishes){
+
+      console.log("guess order "+food_data[rst[guess_order-2]].question);
+      console.log(food_data[rst[guess_order-2]].dishes[smallkey].name+" "+food_data[rst[guess_order-2]].dishes[smallkey].id);
+    
+      //질문마다 속해있는 음식 말해줌
+      arr[food_data[rst[guess_order-2]].dishes[smallkey].id]-=1;
+      console.log("arr "+arr[food_data[rst[guess_order-2]].dishes[smallkey].id])
+    }
+    console.log(arr);
+
+  }  
+  
 }
 
 function nurmal(){
@@ -212,13 +214,7 @@ function nurmal(){
 function guess_back(){
   const guessElement = document.getElementById('guess_text');
   guess_order-=1;
-  /*
-  for(smallkey in food_data[rst[guess_order]].dishes){
-    console.log(food_data[rst[guess_order]].dishes[smallkey].id);
-    //질문마다 속해있는 음식 말해줌
-    arr[food_data[rst[guess_order]].dishes[smallkey].id]-=1;
-  }
-  */
+
   console.log()
   for(smallkey in food_data[rst[guess_order-1]].dishes){
     console.log(food_data[rst[guess_order-1]].dishes[smallkey].name);
@@ -250,52 +246,27 @@ function choose(){
     for(let element of sorted) {
       if(big_value==element[1]){
         big_value_arr.push(element[0]);
+        console.log(length);
         length+=1;
       }
-      //console.log("big ="+big_value);
 	    sorted_arr.push(element[0])
-	    //console.log(element[0]+ ": " + element[1]);
+
     }
 
-    //console.log(sorted_arr);
-
-    //console.log("-----------");
-    console.log("big "+big_value_arr);
-    //console.log(big_value_arr);
     var num = Math.random() * length; // Math 앞에 대문자
     var ball1 = parseInt(num); // parseInt 철자 주의
-    //console.log(big_value_arr[ball1]);
-    chose_food=big_value_arr[ball1]; 
-    console.log("---------음식id = "+chose_food);
+    var chose_food=parseInt(big_value_arr[ball1]); 
+
     localStorage.setItem("food_code", chose_food);
-    chose_succuess(chose_food);
-    
-    //big_value_arr : 질문의 대답과 가장 연관이 많은 음식들이 저장된 배열
-    //chose_food : big_value_arr에서 랜덤으로 뽑힌 한 음식의 id값
-  
 
-  //module.export = {chose_food}
-
-  setTimeout(function() {  
     location.href='./twenty_loading.html';
-    chose_succuess(chose_food);
-    setTimeout(function() {
-      location.href='./twenty_result.html';
-      //setTimeout(function() {  
-        //result(big_value_arr[ball1]); },1000);
-        //result();
-    }, 3000); // 로딩 -> 결과
-  }, 3000); // 질문->로딩
-
-  //location.href='./twenty_loading.html'
+  
   }
   else if(number<8){
     window.alert("조금 더 진행해주시면 감사하겠습니다");
   }
   
 }
-
-
 
 function count(type)  {
   // 결과를 표시할 element
@@ -325,28 +296,5 @@ function count(type)  {
     resultElement.innerText = number+".";
   }
 }
-chose_succuess();
-result();
-function result(name){
-  const resultElement = document.getElementById("food_name");
-  let food_name = resultElement.innerText;
-  food_name=1;
-  resultElement.innerText = "'"+name+"'";
-  console.log("id "+name);
-}
 
-async function chose_succuess(food_id){
-  food_id = localStorage.getItem("food_code");
-  //console.log("123");
-  var result_url = "http://ec2-43-200-137-107.ap-northeast-2.compute.amazonaws.com:8081/dishes/";
-  const response = await fetch(result_url+food_id);
-  const data = await response.json();
-  console.log(data);
-  result(data.name);
-
-  }
-
-  function clicked(){
-    window.alert("clicked");
-  }
 

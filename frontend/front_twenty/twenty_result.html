@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>twenty_result</title>
     <link rel="stylesheet" href="./twenty_result.css">
-    <script type="module" src="./twenty_guess.js"> </script>
+    <script src="./twenty_guess.js"> </script>
+    <script src="./twenty_result.js"> </script>
     <!--아래부분은 추가된 부분-->
     <link
       href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
@@ -14,7 +15,6 @@
       />
     <script src="..\front_head\includeHTML.js"></script>
     <link rel="stylesheet" href="..\front_head\style.css" />
-    <link rel="stylesheet" href="../front_head/style.css" />
 </head>
 
 <body>
@@ -41,26 +41,9 @@
                 
 
         <food_img>
-            음식사진
+            <img src=".\img_file_twenty\twenty_result_replace_img.svg" width="auto", height="270">
         </food_img>
-        <!--
-        <connect_line>
-            <img src=".\img_file_twenty\twenty_result_connect_line.svg">
-        </connect_line>            
-
-        <bottom_button>
-            <button class="image" id="left" style="display: inline-block">
-                <img src=".\img_file_twenty\twenty_result_check_recipe.svg">
-            </button>
-            <button class="image" id="right" style="display: inline-block">
-                <img src=".\img_file_twenty\twenty_result_restaurant_list.svg">
-            </button>
-        </bottom_button>
-
-        <a href="#Top" id="go_top">
-            <img src=".\img_file_twenty\twenty_result_go_top.svg">
-        </a>            
-        -->
+        
 
         <connect_top>
             <img src=".\img_file_twenty\twenty_result_connect_top.svg">
@@ -68,9 +51,7 @@
 
         <button class="image">
             <img src=".\img_file_twenty\twenty_result_check_recipe2.svg">
-            <button class="yellow_button" onclick="clicked()" class="image">
-                <img src=".\img_file_twenty\twenty_result_yellow_button.svg"> 
-            </button>
+
         </button>
 
         <connect_bottom>
@@ -80,5 +61,9 @@
         <button class="image">
             <img src=".\img_file_twenty\twenty_result_restaurant_list2.svg">
         </button>
+    
+
+
+
 
 </body>

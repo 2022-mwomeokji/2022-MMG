@@ -18,21 +18,39 @@ body{
 
 #logo_word{
     position: relative;
-
+    top: 50px;
 }
 
 #back_button{
     position: relative;
-    right: 350px;
+    right: 430px;
     top: 30px;
 }
 food_text{
     color:orange;
     position: relative;
-    top: 0px;
-    margin-top: 50px;
+    top: 50px;
+    margin-top: 60px;
     font-family: "NanumSquareAcr";
     font-size: 48px;
+}
+
+wave{
+    position: relative;
+    top: 55px;
+}
+
+food_img{
+    position: relative;
+    top: 70px;
+    margin: 50px;
+    margin-bottom: 60px;
+}
+
+connect_top{
+    position: relative;
+    bottom: 0px;
+    top: 00px;
 }
 
 connect_line{
