@@ -27,19 +27,19 @@ back_button {
 #num_container {
   display: flex;
   margin: 0 auto;
-  margin-top: -5vh;
+  margin-top: -4vh;
 }
 
 #plate_container {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 1.3vh;
 }
 
 #num {
   font-weight: 700;
   font-family: "Montserrat";
-  font-size: 30px;
+  font-size: 1.875rem;
   color: #494646;
 }
 
@@ -72,7 +72,7 @@ back_button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px auto;
+  margin: 1vh auto;
   flex-direction: column;
 }
 
@@ -172,7 +172,7 @@ input:-ms-input-placeholder {
 }
 
 #next_img {
-  margin-top: 5vh;
+  margin-top: 4vh;
   margin-bottom: 3vh;
 }
 

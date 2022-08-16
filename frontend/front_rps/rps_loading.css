@@ -25,7 +25,6 @@ back_button {
 #rps_loading_img {
   margin: 0 auto;
   text-align: center;
-  width: 220px;
   margin-top: 15vh;
 }
 
@@ -33,7 +32,7 @@ back_button {
   margin: 0 auto;
   color: #666666;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 2.68vh;
   display: inline-block;
   white-space: nowrap;
   position: relative;

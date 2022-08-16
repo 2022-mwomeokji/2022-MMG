@@ -38,16 +38,16 @@ small_text {
   margin: 2vh auto;
   color: #494646;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 1.87vh;
   display: inline-block;
   white-space: nowrap;
   position: relative;
-  width: 300px;
   font-family: "NanumSquareAcr";
 }
 
 #start_botton {
   text-align: center;
   position: relative;
+  margin-top: 3vh;
   margin-bottom: 3vh;
 }

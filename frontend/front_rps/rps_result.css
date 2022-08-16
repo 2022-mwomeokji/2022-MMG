@@ -1,5 +1,4 @@
 body {
-  height: 7vh;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -7,7 +6,6 @@ body {
 }
 
 #container {
-  height: 10vh;
   display: flex;
   flex-direction: column;
 }
@@ -25,9 +23,12 @@ back_button {
 }
 
 #rps {
-  width: 70px;
   margin-top: -7vh;
   margin-bottom: 1vh;
+}
+
+#rps_enjoy {
+  margin: 0 auto;
 }
 
 #img_container {
@@ -36,44 +37,40 @@ back_button {
   flex-direction: row;
 }
 
-#menu_box {
-  margin-top: 1vh;
-}
-
 #menu_container {
-  margin: 0 50px;
+  margin: 0 3vw;
   display: inline-flex;
   flex-direction: column;
 }
 
 #menu_img {
   margin: 0 auto;
-  width: 150px;
-  height: 120px;
   border-radius: 40%;
   border: none;
   object-fit: cover;
+  width: 150px;
+  height: 120px;
 }
 
 #menu {
-  margin: 2vh auto;
+  margin: 1vh auto;
   font-family: "NanumSquareAcr";
   font-weight: 800;
-  font-size: 35px;
+  font-size: 4.6vh;
   color: #494646;
 }
 
 #name {
   font-family: "NanumSquareAcr";
   font-weight: 700;
-  font-size: 24px;
+  font-size: 3.2vh;
   color: #666666;
 }
 
 #name span {
   font-family: "NanumSquareAcr";
   font-weight: 800;
-  font-size: 24px;
+  font-size: 3.2vh;
   color: #e06437;
 }
 

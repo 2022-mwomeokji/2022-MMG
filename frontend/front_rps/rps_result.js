@@ -16,10 +16,8 @@ window.onload = function () {
     ).innerHTML = `<div id="name">'${people}' <span>승!</span></div>`;
   }
 
-  if (localStorage.getItem("menuUrl")) {
+  if (localStorage.getItem("menuUrl") != null) {
     var menuUrl = localStorage.getItem("menuUrl");
     document.getElementById("menu_img").src = menuUrl;
-  } else {
-    document.getElementById("menu_img").src = "./img_rps/rps_main_sec_logo.svg"; // 기본 이미지
   }
 };
