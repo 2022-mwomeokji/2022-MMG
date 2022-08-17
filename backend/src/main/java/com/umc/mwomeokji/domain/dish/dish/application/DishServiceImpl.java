@@ -29,6 +29,16 @@ public class DishServiceImpl implements DishService{
     private final FileService fileService;
 
     @Override
+    public List<String> tmp(List<MultipartFile> multipartFile) {
+        List<String> names = new ArrayList<>();
+        for (MultipartFile m : multipartFile) {
+            names.add(fileService.uploadImage(m));
+        }
+        return names;
+    }
+
+
+    @Override
     public DishDetailsResponse saveDish(DishPostRequest request, MultipartFile multipartFile) {
         String imageUrl = fileService.uploadImage(multipartFile);
         Dish dish = dishRepository.save(dishMapper.toEntity(request, imageUrl));
