@@ -3,13 +3,5 @@
 .idea
 build
 
-<<<<<<< HEAD
-
-# secrets #
-application-aws.yml
-
-# vscode
-=======
 # vscode #
->>>>>>> 9b5bfa5200491f72372208f413482b7bced8f999
 .vscode
