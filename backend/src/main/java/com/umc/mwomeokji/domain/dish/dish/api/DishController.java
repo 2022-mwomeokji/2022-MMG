@@ -23,11 +23,6 @@ public class DishController {
 
     private final DishService dishService;
 
-    @PostMapping("/tmp")
-    public List<String> tmp(@RequestPart(required = false, name = "image") List<MultipartFile> multipartFile) {
-        return dishService.tmp(multipartFile);
-    }
-
     @Operation(summary = "메뉴 저장 API", description = "새로운 메뉴를 저장하기 위한 API 입니다.")
     @PostMapping
     public ResponseEntity<DishDetailsResponse> save(

@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface DishService {
 
-    List<String> tmp(List<MultipartFile> multipartFile);
-
     DishDetailsResponse saveDish(DishPostRequest request, MultipartFile multipartFile);
 
     List<DishNameResponse> getAllDishesName();
