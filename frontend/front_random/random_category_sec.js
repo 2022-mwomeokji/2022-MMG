@@ -15,6 +15,7 @@ function check(i){
     var check_kor= document.getElementById("random_category_sec_cat_check_kor");
     var check_chi= document.getElementById("random_category_sec_cat_check_chi");
     var check_all= document.getElementById("random_category_sec_cat_check_all");
+    var start= document.getElementById("random_category_sec_start");
 
     if (i==1){
         addCheck(check_fast);
@@ -23,6 +24,7 @@ function check(i){
         removeCheck(check_kor);
         removeCheck(check_chi);
         removeCheck(check_all);
+        changeColor(start);
     }
     else if(i==2){
         addCheck(check_jap);
@@ -31,6 +33,7 @@ function check(i){
         removeCheck(check_kor);
         removeCheck(check_chi);
         removeCheck(check_all);
+        changeColor(start);
     }
     else if(i==3){
         addCheck(check_wes);
@@ -39,6 +42,7 @@ function check(i){
         removeCheck(check_kor);
         removeCheck(check_chi);
         removeCheck(check_all);
+        changeColor(start);
     }
     else if(i==4){
         addCheck(check_kor);
@@ -47,6 +51,7 @@ function check(i){
         removeCheck(check_fast);
         removeCheck(check_chi);
         removeCheck(check_all);
+        changeColor(start);
     }
     else if(i==5){
         addCheck(check_chi);
@@ -55,6 +60,7 @@ function check(i){
         removeCheck(check_kor);
         removeCheck(check_fast);
         removeCheck(check_all);
+        changeColor(start);
     }
     else if(i==6){
         addCheck(check_all);
@@ -63,6 +69,7 @@ function check(i){
         removeCheck(check_kor);
         removeCheck(check_chi);
         removeCheck(check_fast);
+        changeColor(start);
     }
 
 }
@@ -74,4 +81,8 @@ function addCheck(id){
 
 function removeCheck(id){
     id.style.visibility = 'hidden';
+}
+
+function changeColor(id){
+    id.style.backgroundColor = '#E06437';
 }

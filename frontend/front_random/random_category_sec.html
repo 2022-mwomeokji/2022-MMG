@@ -14,8 +14,10 @@
     <script src="../front_head/includeHTML.js"></script>
     <script src="random_category_sec.js"></script>
   </head>
+
   <body>
-    <div include-html="nav.html"></div>
+    <div include-html="../front_head/nav.html"></div>
+
     <button type = "button" id="random_category_sec_back" onclick="history.back()">
         <img id="random_category_sec_back_img" src="img_random/random_category_sec_back.svg" alt="back">
     </button>
@@ -28,7 +30,7 @@
         <div class="random_category_sec_cat1" onclick="check(1)">
             <img class = "random_category_sec_check" id = "random_category_sec_cat_check_fast" src ="img_random/random_category_sec_check.svg" alt ="check">
             <img class="random_category_sec_cat_img1" id = "random_category_sec_cat_fast"  src = "img_random/random_category_sec_cat1.svg" alt="fastfood">
-            <h2 class="random_category_sec_cat_text">패스트푸드</h2>    
+            <h2 class="random_category_sec_cat_text">한식</h2>    
         </div>
         <div class="random_category_sec_cat1" onclick="check(2)">
             <img class = "random_category_sec_check" id = "random_category_sec_cat_check_jap" src ="img_random/random_category_sec_check.svg" alt ="check">
@@ -43,23 +45,23 @@
     </div>
     <div class="random_category_sec_cat">
         <div class="random_category_sec_cat2" onclick="check(4)">
-            <img class = "random_category_sec_check" id = "random_category_sec_cat_check_kor" src ="img_random/random_category_sec_check.svg" alt ="check">
+            <img class = "random_category_sec_check2" id = "random_category_sec_cat_check_kor" src ="img_random/random_category_sec_check.svg" alt ="check">
             <img class="random_category_sec_cat_img1" id = "random_category_sec_cat_kor" src = "img_random/random_category_sec_cat4.svg" alt="Korean">
-            <h2 class="random_category_sec_cat_text">한식</h2>    
+            <h2 class="random_category_sec_cat_text">아시안</h2>    
         </div>
         <!-- 중식 svg 바꿔야 함 -->
         <div class="random_category_sec_cat2" onclick="check(5)">
-            <img class = "random_category_sec_check" id = "random_category_sec_cat_check_chi" src ="img_random/random_category_sec_check.svg" alt ="check">
+            <img class = "random_category_sec_check2" id = "random_category_sec_cat_check_chi" src ="img_random/random_category_sec_check.svg" alt ="check">
             <img class="random_category_sec_cat_img1" id = "random_category_sec_cat_chi" src = "img_random/random_category_sec_cat4.svg" alt="Chinese">
             <h2 class="random_category_sec_cat_text">중식</h2>    
         </div>
         <div class="random_category_sec_cat2" onclick="check(6)">
-            <img class="random_category_sec_check" id = "random_category_sec_cat_check_all" src ="img_random/random_category_sec_check.svg" alt ="check">
+            <img class="random_category_sec_check2" id = "random_category_sec_cat_check_all" src ="img_random/random_category_sec_check.svg" alt ="check">
             <img class="random_category_sec_cat_img1" id = "random_category_sec_cat_all" src = "img_random/random_category_sec_cat6.svg" alt="ALL">
             <h2 class="random_category_sec_cat_text">ALL</h2>    
         </div>
     </div>
-    <button type ="button"  class="random_category_sec_start">시작하기</button>
+    <button type ="button"  id="random_category_sec_start">다음</button>
     <!-- onclick="location.href='main_main_sec.html'" html 경로 바꿔서 추가하기 -->
     </div>
     <script>
