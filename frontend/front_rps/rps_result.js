@@ -22,7 +22,7 @@ window.onload = function () {
   if (menuImg === undefined || menuImg == null) {
     console.log(menuImg);
     document.getElementById("menu_img").src = src =
-      "./img_rps/rps_main_sec_logo.svg";
+      "./img_rps/rps_default_img.svg";
   } else {
     console.log(menuImg);
     var menuUrl = menuImg;
