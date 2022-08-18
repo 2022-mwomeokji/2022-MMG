@@ -2,11 +2,12 @@ package com.umc.mwomeokji.domain.question.application;
 
 import com.umc.mwomeokji.domain.question.dao.QuestionRepository;
 import com.umc.mwomeokji.domain.question.domain.Question;
+import com.umc.mwomeokji.domain.question.dto.QuestionDto.QuestionAndDishesResponse;
 import com.umc.mwomeokji.domain.question.dto.QuestionDto.QuestionsNameResponse;
 import com.umc.mwomeokji.domain.question.dto.QuestionMapper;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -22,8 +23,16 @@ public class QuestionServiceImpl implements QuestionService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<QuestionsNameResponse> getAllQuestionsName(){
+    public QuestionsNameResponse getAllQuestionsName(){
+        return questionMapper.toQuestionsNameResponse(questionRepository.findAll());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<QuestionAndDishesResponse> getQuestionAndDishes() {
         List<Question> questionList = questionRepository.findAll();
-        return questionList.stream().map(question -> questionMapper.toQuestionNameResponse(question)).collect(Collectors.toList());
+        List<QuestionAndDishesResponse> questionAndDishesResponseList = questionList.stream().map(question ->
+                        questionMapper.toQuestionAndDishesResponse(question, question.getQuestionDishList())).collect(Collectors.toList());
+        return questionAndDishesResponseList;
     }
 }
