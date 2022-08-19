@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="./twenty_guess.css">
     <script src="./twenty_guess.js"> </script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-latest.js"
+    ></script>
     <link
       href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
       rel="stylesheet"
@@ -26,7 +30,7 @@
         <!--상단 로고 오늘은 뭐먹지-->
         
         <top_botton>
-            <button class="test" type="button" class="image" id = "back_botton" onclick='guess_back(), count("minus")', onClick="history.back()" width="auto", height="40">
+            <button type="button" class="image" id = "back_botton" onclick='guess_back(), count("minus")', onClick="history.back()" width="auto", height="40">
                 <img  src=".\img_file_twenty\twenty_guess_sec_arrow_back.svg" width="auto", height="50">
             </button>
     
@@ -42,13 +46,10 @@
             질문 내용을 적어주세요
         </number_bottom>
         <guess_button>
-            <button_background>
-                <!--
-                <img  src=".\img_file_twenty\twenty_guess_guess_background.svg" width="auto", height="50">    
-                -->
-                <img  src=".\img_file_twenty\twenty_guess_guess_long.svg" width="auto", height="50">
+            <button_background id="background_img2">
+                <img id="background_img" src=".\img_file_twenty\twenty_guess_guess_background.svg" width="auto", height="50">
                 <guess_text id='guess_text'>
-                    혹시 멕시코, 동남아 요리 등 이색적인 메뉴는 어떠신가요?
+                    질문 내용
                 </guess_text>
             </button_background>
         </guess_button>

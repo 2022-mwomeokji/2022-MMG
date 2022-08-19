@@ -1,12 +1,7 @@
+var food_data=[]; // api로 fetch받은 데이터
+var question_length=[]; // 질문마다 길이가 저장됨
 
-var keys=[];
-var food_named=[];
-var food_data=[];
-var question_length=[];
-//let number=0;
-//export var chose_food=0;
-
-
+//시간 지연을 위해 사용
 function sleep(ms) {
   const wakeUpTime = Date.now() + ms;
   while (Date.now() < wakeUpTime) {}
@@ -19,43 +14,18 @@ async function getjson(){
   console.log(data.dishes);
   food_data = data;
   for(key in data) {
-    keys.push(key);
       //console.log(key+ data[key]);
       //console.log("key "+ data[key].question);
       //console.log("key "+ data[key].question.length);
-      question_length.push(data[key].question.length);
+      question_length.push(data[key].question.length); // 문자열 뒤에 length를 붙이는 것만으로 길이 측정
+                                                       // 매번 검색?
       //질문들을 알 수 있음
   }
-  
-  for(var key in data) {
-    keys.push(key);
-      //console.log(key+ data[key]);
-      //console.log("메뉴 "+key+ data[key].dishes); //out 질문에 대한 음식 갯수체크정도
-      //질문들을 알 수 있음
-      ///for(var smallkey in data[key].dishes){
-        ///food_named.push(smallkey);
-        //console.log(food_named);
-        //console.log(smallkey+ data[key].dishes[smallkey].name);
-        //data[key].dishes[1].name
-        //key값에 포함된 음식들을 알 수 있음
-      ///}
-  }
-  //console.log("test "+food_named[0].dishes[smallkey].name)
 
-
-  
-  data.forEach(o => {
-      if (o.id != '{id: 92, name: 쌀국수}') {
-          //console.log(o);
-      }
-      else {
-          //console.log(o);
-      }
-  });const unique = [...new Set(data.map(item => item.group))];
-
-  console.log("질문 0부터 10까지");
-  for(var i=0 ; i<10 ; i++){
+  console.log("질문 0부터 44까지");
+  for(var i=0 ; i<45 ; i++){
     console.log("i="+i+" "+food_data[rst[i]].question);
+    console.log(food_data[rst[i]].question.length);
   }
 
 
@@ -66,7 +36,7 @@ async function getjson(){
 
 
 
-var guess_food_data = getjson();
+//var guess_food_data = getjson();
 /*
 console.log("data = "+guess_food_data);
 var keys=[];
@@ -100,16 +70,15 @@ function getRandom(min, max) {
         break;
       }
     }
-
   }
-console.log("guestion_list random");
 
-getRandomArray(0,9,10);
+
+getRandomArray(0,44,45);
 //next_guess();
 //배열 랜덤으로 만드는 부분(0부터 9까지 10개의 수를 배열)
 //console.log("배열 "+rst);
 
-  /*
+  
   //let guess_text = guessElement.innerText;
   //console.log(guess_text);
   console.log("--");
@@ -118,7 +87,9 @@ getRandomArray(0,9,10);
   console.log("글자수 = "+question_length[rst[guess_order]]);
   var target = document.getElementById("guess_text");
   var length=question_length[rst[guess_order]];
-  */
+  console.log(length);
+  
+
  function start(){
   console.log("-------------------------------------------------------------------------------");
   console.log("clicked_count "+clicked_count);
@@ -137,6 +108,32 @@ function next_guess(){
   const guessElement = document.getElementById('guess_text');
 
   guessElement.innerText = food_data[rst[guess_order]].question;
+  console.log("======================="+food_data[rst[guess_order]].question.length);
+  if(food_data[rst[guess_order]].question.length >20){
+    $('#background_img2').css({
+      "width":"400px",
+      "left":"-120px"
+
+    });
+    
+    $('#guess_text').css({
+      "width":"400px",
+      "left":"-10px"
+    });
+    document.getElementById("background_img").src= "./img_file_twenty/twenty_guess_guess_long.svg";
+  }
+  else{
+    $('#background_img2').css({
+      "width":"100px",
+      "left":"-180px"
+    });
+
+    $('#guess_text').css({
+      "width":"300px",
+      "right":"-20px"
+    });
+    document.getElementById("background_img").src= "./img_file_twenty/twenty_guess_guess_background.svg";
+  }
 
 }
 var arr = {};
@@ -212,7 +209,6 @@ function nurmal(){
 }
 
 function guess_back(){
-  window.alert("guess_back");
   const guessElement = document.getElementById('guess_text');
   guess_order-=1;
 
@@ -228,7 +224,7 @@ function guess_back(){
 next_guess();
 console.log(rst);
 
-
+ 
 let chose_food=1;
 
 function choose(){
@@ -278,7 +274,6 @@ function count(type)  {
   if(type === 'plus') {
     number = parseInt(number) + 1;
   }else if(type === 'minus')  {
-    window.alert('minus');
     number = parseInt(number) - 1;
     if(number === -1){
       location.href='./twenty_main.html';
