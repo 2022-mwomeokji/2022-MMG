@@ -1,5 +1,6 @@
 var food_data=[]; // api로 fetch받은 데이터
 var question_length=[]; // 질문마다 길이가 저장됨
+var guess_start_check=0;
 
 //시간 지연을 위해 사용
 function sleep(ms) {
@@ -21,16 +22,23 @@ async function getjson(){
                                                        // 매번 검색?
       //질문들을 알 수 있음
   }
-
+  var i=0 
   console.log("질문 0부터 44까지");
-  for(var i=0 ; i<45 ; i++){
+  for(; i<45 ; i++){
     console.log("i="+i+" "+food_data[rst[i]].question);
     console.log(food_data[rst[i]].question.length);
   }
 
+  if(guess_start_check==0){
+    guess_start_check=1;
+    next_guess();
+    like();
+    count("plus");
+  }
 
 
   return data;
+
 }
 //fetch 끝
 
