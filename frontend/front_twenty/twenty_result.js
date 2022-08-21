@@ -1,5 +1,5 @@
 var food_id=0;
-
+console.log("2");
 chose_succuess(food_id)
 result()
 function result(name){
@@ -34,3 +34,7 @@ async function chose_succuess(food_id){
     document.getElementById("food_img").src= code;    
   }
 chose_succuess(chose_food);
+
+function go_top(){
+  window.scrollTo({top:0, left:0, behavior:"smooth"});
+}
