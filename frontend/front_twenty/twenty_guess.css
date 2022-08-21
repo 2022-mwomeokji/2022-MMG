@@ -195,4 +195,14 @@ skip{
     top: 60px;
 }
 
+.btn:active {
 
+    box-shadow: inset -.3rem -.1rem 1.4rem  #FBFBFB, inset .3rem .4rem .8rem #BEC5D0; 
+    cursor: pointer;
+
+}
+
+btn{
+    border-radius: 10px;
+    box-shadow:.8rem .5rem 1.4rem  #BEC5D0, -.3rem -.4rem .8rem #FBFBFB;
+}
