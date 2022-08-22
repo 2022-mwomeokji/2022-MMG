@@ -9,6 +9,8 @@ function addItem() {
     .querySelector("#next_img")
     .setAttribute("src", "./img_rps/next_button_gray.svg");
   document.getElementById("next_img").removeAttribute("onClick");
+  document.getElementById("next_img").removeAttribute("onClick");
+  $("#next_img").css("cursor", "default");
 
   const arr = Array.from(Array(value), () => Array(2).fill(null));
 
@@ -115,6 +117,7 @@ function blockNext() {
       .querySelector("#next_img")
       .setAttribute("src", "./img_rps/next_button_gray.svg");
     document.getElementById("next_img").removeAttribute("onClick");
+    $("#next_img").css("cursor", "default");
   } else {
     finishPage();
   }
@@ -157,6 +160,7 @@ function finishPage() {
       .querySelector("#next_img")
       .setAttribute("src", "./img_rps/next_button.svg");
     document.getElementById("next_img").setAttribute("onClick", "hrefLink();");
+    $("#next_img").css("cursor", "pointer");
     let randNum = Math.floor(Math.random() * value);
     winner_name = document.getElementsByClassName("rps_name")[randNum].value;
     winner_menu = document.getElementsByClassName("rps_menu")[randNum].value;

@@ -16,6 +16,10 @@ back_button {
   margin-top: 2vh;
 }
 
+back_button img:hover {
+  cursor: pointer;
+}
+
 main_text {
   margin: 0 auto;
   margin-top: -4vh;
@@ -50,4 +54,8 @@ small_text {
   position: relative;
   margin-top: 1vh;
   margin-bottom: 3vh;
+}
+
+#start_botton:hover {
+  cursor: pointer;
 }

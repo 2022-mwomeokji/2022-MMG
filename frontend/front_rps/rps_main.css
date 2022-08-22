@@ -16,6 +16,10 @@ exit_img {
   margin-top: 2vh;
 }
 
+exit_img img:hover {
+  cursor: pointer;
+}
+
 main_text {
   margin: 0 auto;
   margin-top: -3vh;
@@ -50,4 +54,8 @@ small_text {
   position: relative;
   margin-top: 3vh;
   margin-bottom: 3vh;
+}
+
+#start_botton:hover {
+  cursor: pointer;
 }

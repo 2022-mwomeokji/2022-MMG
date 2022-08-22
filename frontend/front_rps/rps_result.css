@@ -16,6 +16,10 @@ back_button {
   margin-top: 2vh;
 }
 
+back_button img:hover {
+  cursor: pointer;
+}
+
 .image {
   background-color: white;
   border: 0ch;
@@ -82,4 +86,8 @@ back_button {
 
 share_button {
   margin: 3vh auto;
+}
+
+share_button img:hover {
+  cursor: not-allowed;
 }

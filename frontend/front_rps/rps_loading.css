@@ -16,6 +16,10 @@ back_button {
   margin-top: 2vh;
 }
 
+back_button img:hover {
+  cursor: pointer;
+}
+
 .image {
   background-color: white;
   border: 0ch;
