@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slide</title>
+  <style>
+    *{
+        padding:0;
+        font-family: 'Arial';
+        color: #fff;
+        font-weight: bold;
+        font-size: 3rem;
+        text-align: center;
+    }
+    ul,li{list-style:none;}
+    .slide{width:500px; overflow:hidden;}
+    .slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slide를 8초동안 진행하며 무한반복 함 */
+    .slide li{width:calc(100% / 4);height:300px;}
+    .slide li:nth-child(1){background:lightgray;}
+    .slide li:nth-child(2){background:darkgrey;}
+    .slide li:nth-child(3){background:grey;}
+    .slide li:nth-child(4){background:dimgrey;}
+    @keyframes slide {
+      0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+      10% {margin-left:0;} /* 10 ~ 25 : 변이 */
+      25% {margin-left:-100%;} /* 25 ~ 35 : 정지 */
+      35% {margin-left:-100%;} /* 35 ~ 50 : 변이 */
+      50% {margin-left:-200%;}
+      60% {margin-left:-200%;}
+      75% {margin-left:-300%;}
+      85% {margin-left:-300%;}
+      100% {margin-left:0;}
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <ul>
+      <li>lightgray</li>
+      <li>darkgrey</li>
+      <li>grey</li>
+      <li>dimgrey</li>
+    </ul>
+  </div>
+</body>
+</html>
