@@ -36,9 +36,9 @@ jobs:
 
     - name: Copy deployment pakage files
       run: |
-        cp scripts/*.sh ./deploy
-        cp appspec.yml ./deploy
-        cp ./build/libs/*.jar ./deploy
+        cp scripts/*.sh deploy/
+        cp appspec.yml deploy/
+        cp ./build/libs/*.jar deploy/
 
     - name: Make deployment zip file
       run: zip -r mwomeokji.zip ./deploy
