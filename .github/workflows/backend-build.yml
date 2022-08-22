@@ -34,13 +34,13 @@ jobs:
     - name: Make Directory
       run: mkdir -p deploy
 
-    - name: Copy Jar File
-      run: cp ./build/libs/*.jar ./deploy
+    - name: Copy deployment pakage files
+      run:
+        cp scripts/*.sh ./deploy
+        cp appspec.yml ./deploy
+        cp ./build/libs/*.jar ./deploy
 
-    - name: Copy appspec.yml File
-      run: cp appspec.yml ./deploy
-
-    - name: Make zip file
+    - name: Make deployment zip file
       run: zip -r mwomeokji.zip ./deploy
 
     - name: Configure AWS credentials
