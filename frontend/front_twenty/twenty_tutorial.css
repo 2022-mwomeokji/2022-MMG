@@ -21,24 +21,22 @@ main_logo{
   
 }
   
+
 #start_botton {
     text-align: center;
     margin-bottom: 0px;
     position: relative;
     bottom: -20px;
-  
 }
   
 #logo_word {
     text-align: center;
-  
 }
 
 tutorial{
     top: 50px;
     margin-bottom:30px;
     margin-top: 30px;
-
 }
 
 .gif{
@@ -53,9 +51,11 @@ tutorial{
     border: 0ch;
 }
 
+
 texts{
     position: relative;
     font-family: "NanumSquareAcr";
     font-size: 14;
     margin-bottom:50px;
+
 }
