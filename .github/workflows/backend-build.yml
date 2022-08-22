@@ -37,6 +37,9 @@ jobs:
     - name: Copy Jar File
       run: cp ./build/libs/*.jar ./deploy
 
+    - name: Copy appspec.yml File
+      run: cp appspec.yml ./deploy
+
     - name: Make zip file
       run: zip -r mwomeokji.zip ./deploy
 
@@ -49,3 +52,10 @@ jobs:
 
     - name: Upload to S3
       run: aws s3 cp mwomeokji.zip s3://mwomeokji/backend_build_files/ --acl private
+
+    - name: Code Deploy
+      run: aws deploy create-deployment
+        --application-name mwomeokji
+        --deployment-group-name mwomeokji
+        --deployment-config-name CodeDeployDefault.AllAtOnce
+        --s3-location bucket=mwomeokji, key=build_files/mwomeokji.zip, bundleType=zip
