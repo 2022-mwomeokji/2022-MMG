@@ -58,4 +58,4 @@ jobs:
         --application-name mwomeokji
         --deployment-group-name mwomeokji
         --deployment-config-name CodeDeployDefault.AllAtOnce
-        --s3-location bucket=mwomeokji, key=build_files/mwomeokji.zip, bundleType=zip
+        --s3-location bucket=mwomeokji,key=build_files/mwomeokji.zip,bundleType=zip
