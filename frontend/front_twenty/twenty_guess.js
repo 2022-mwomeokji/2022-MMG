@@ -3,6 +3,23 @@ var question_length=[]; // 질문마다 길이가 저장됨
 var guess_start_check=0;
 var choose_record=[];
 
+$(document).ready(function(){
+
+    $(".slide").click(function(){
+        $(function bbb(){
+
+            $(".slide").animate({marginLeft:"-1200px"}, 500);
+            //$("#guess_botton_a").hide();
+            $(".slide").animate({marginLeft:"1000px"}, 000);
+            $(".slide").animate({marginLeft:"0px"}, 100);
+           // $("#guess_botton_a").show();
+            $(".slide").show();
+
+        });
+    }) 
+ });
+
+
 //시간 지연을 위해 사용
 function sleep(ms) {
   const wakeUpTime = Date.now() + ms;
@@ -30,7 +47,6 @@ async function getjson(){
   return data;
 
 }
-
 
 
 var rst=[]; // 질문들이 랜덤하게 들어있고 안에 그 순서가 지정되있다 
@@ -70,6 +86,8 @@ function next_guess(){
 
   guessElement.innerText = food_data[rst[guess_order]].question;
 
+  console.log(food_data[rst[guess_order]].question);
+  console.log(food_data[rst[guess_order]].question.length);
   if(food_data[rst[guess_order]].question.length >20){
     $('#background_img2').css({
       "width":"400px",
@@ -112,6 +130,7 @@ make_arr();
 function like(){
   
   guess_order=guess_order+1;
+  bar_progress();
   if(clicked_count<=1){
 
     console.log(arr);
@@ -131,6 +150,7 @@ function like(){
 
 function dislike(){
   guess_order=guess_order+1;
+  bar_progress();
   if(clicked_count<=1){
 
     console.log(arr);
@@ -149,8 +169,19 @@ function dislike(){
   
 }
 
-function nurmal(){
-  console.log(arr);
+function normal(){
+  guess_order=guess_order+1;
+  bar_progress();
+  if(clicked_count<=1){
+
+    console.log(arr);
+    return;
+  }
+  
+  else{
+    choose_record[guess_order]=0;
+    console.log(choose_record);
+  }  
 }
 
 function guess_back(){
@@ -165,6 +196,7 @@ function guess_back(){
     choose_record[guess_order]=0;
     console.log(choose_record);
     guess_order-=1;
+    bar_progress();
   }
 
   else if(choose_record[guess_order]==-1){
@@ -187,6 +219,12 @@ function guess_back(){
   }
 
 }
+
+function bar_progress(){
+  document.getElementById( 'jb' ).value = guess_order;
+
+}
+
 next_guess();
 console.log(rst);
 
@@ -246,8 +284,12 @@ function count(type)  {
   }
 
 
-  if(number>7){
+  if(number>12){
     document.getElementById("skipd").src= "./img_file_twenty/twenty_guess_skip_guess.svg";
+  }
+
+  else{
+    document.getElementById("skipd").src= "./img_file_twenty/twenty_guess_choose_more.svg";
   }
   
   // 결과 출력
@@ -259,4 +301,7 @@ function count(type)  {
   }
 }
 
+/*
+
+*/
 
