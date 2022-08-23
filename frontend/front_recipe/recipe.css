@@ -183,7 +183,7 @@
 
 .recipe_list{
     position: relative;
-    left: 50px;
+    left: 20px;
 }
 
  .recipe_recipelist{
@@ -278,7 +278,8 @@
 
 .recipe_side2{
     position: absolute;
-    top: 53.5vh;
+    margin-top: 164px;
+    top: 35vh;
     left: 87vw; 
     background-color: white;
     height: 41px;
@@ -294,8 +295,9 @@
 
 .recipe_side3{
     position: absolute;
-    top: 59.8vh;
+    top: 35vh;
     left: 87vw;
+    margin-top: 221px;
     background-color: white;
     height: 41px;
     width: 122px;
