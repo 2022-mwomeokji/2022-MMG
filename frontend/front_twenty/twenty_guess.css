@@ -13,7 +13,7 @@ body{
   flex-direction: column;
 }
 
-top_botton{
+top_button{
     margin-top: 20px;
     text-align: center;
 }
@@ -108,7 +108,7 @@ number{
 
 
 
-#back_botton{
+#back_button{
     position: relative;
     right: 430px;
     top: 0px;
@@ -116,32 +116,32 @@ number{
 }
 
 
-#reset_botton{
+#reset_button{
     position: relative;
     background-color: white;
     left: 350px;
 }
 
-#guess_botton_a{
+#guess_button_a{
     position: relative;
     left: 180px;
     bottom: 40px;
 }
 
-#guess_botton_b{
+#guess_button_b{
     position: relative;
     left: 180px;
     bottom: 10px;
 }
 
-#guess_botton_c{
+#guess_button_c{
     position: relative;
     left: 180px;
     top: 20px;
 }
 
 
-.botton_hover:hover{
+.button_hover:hover{
     content: url("./img_file_twenty/twenty_guess_yellow_answer.svg");
 
 
@@ -155,10 +155,10 @@ number{
   top: 20px;
   display: none;
 }
-.botton_hover:hover .clicked {
+.button_hover:hover .clicked {
   display: block;
 }
-.botton_hover:hover .botton_hover {
+.button_hover:hover .button_hover {
   display: none;
 }
 

@@ -17,7 +17,7 @@ async function chose_succuess(food_id){
     food_id = localStorage.getItem("food_code");
     console.log("chose_success");
     console.log(food_id);
-    var result_url = "http://ec2-43-200-137-107.ap-northeast-2.compute.amazonaws.com:8081/dishes/";
+    var result_url = "https://mwomeokji.shop/dishes/";
     const response = await fetch(result_url+food_id);
     const data = await response.json();
     console.log(data.name);
