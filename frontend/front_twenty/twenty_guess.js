@@ -210,6 +210,14 @@ function guess_back(){
     guess_order-=1;
   }
 
+  else if(choose_record[guess_order]==2){
+    guessElement.innerText = food_data[rst[guess_order-2]].question;
+    console.log(arr);
+    choose_record[guess_order]=0;
+    console.log(choose_record);
+    guess_order-=1;
+  }
+
   else{
     //console.log("둘다 아님");
     //console.log(guess_order);
@@ -271,7 +279,7 @@ function count(type)  {
   const resultElement = document.getElementById('guess_number');
   // 현재 화면에 표시된 값
   let number = resultElement.innerText;
-  
+
   if(type === 'plus') {
     number = parseInt(number) + 1;
 
