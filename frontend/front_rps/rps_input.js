@@ -173,7 +173,7 @@ function finishPage() {
   }
 }
 
-function hrefLink() {
+async function connect_server() {
   // 서버 연결
   let params = {
     name: winner_menu,
@@ -183,19 +183,17 @@ function hrefLink() {
     (k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k])
   );
 
-  let url =
-    "http://ec2-43-200-137-107.ap-northeast-2.compute.amazonaws.com/dishes?" +
-    query;
+  let url = "https://mwomeokji.shop/dishes?" + query;
 
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      localStorage.setItem("menuUrl", data.imageUrl);
-    })
-    .catch(function (error) {
-      console.log("request failed", error);
-    });
+  const response = await fetch(url);
+  const data = await response.json();
+
+  console.log(data);
+  localStorage.setItem("menuUrl", data.imageUrl);
+}
+
+function hrefLink() {
+  connect_server();
 
   localStorage.setItem("name", winner_name);
   localStorage.setItem("menu", winner_menu);
