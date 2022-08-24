@@ -10,19 +10,9 @@ body {
   flex-direction: column;
 }
 
-back_button {
-  position: relative;
-  margin-right: 65vw;
-  margin-top: 2vh;
-}
-
-back_button img:hover {
-  cursor: pointer;
-}
-
 #good_rest_main {
   margin: 0 auto;
-  margin-top: -4vh;
+  margin-top: 7vh;
   text-align: center;
   display: flex;
   flex-direction: row;
