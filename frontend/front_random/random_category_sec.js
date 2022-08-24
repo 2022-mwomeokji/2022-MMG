@@ -6,9 +6,9 @@
 // var kor= document.getElementById("random_category_sec_cat_kor");
 // var chi= document.getElementById("random_category_sec_cat_chi");
 // var all= document.getElementById("random_category_sec_cat_all");
-
+var code=0;
 function check(i){
-
+    code=i;
     var check_fast= document.getElementById("random_category_sec_cat_check_fast");
     var check_jap= document.getElementById("random_category_sec_cat_check_jap");
     var check_wes= document.getElementById("random_category_sec_cat_check_wes");
@@ -85,4 +85,10 @@ function removeCheck(id){
 
 function changeColor(id){
     id.style.backgroundColor = '#E06437';
+}
+
+function choose_random(){
+    console.log(code);
+    localStorage.setItem("category_code", code);
+    location.href='./ran_loading.html';
 }

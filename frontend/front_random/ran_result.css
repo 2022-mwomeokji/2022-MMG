@@ -37,20 +37,20 @@ food_text{
 
 wave{
     position: relative;
-    top: 55px;
+    top: 5px;
 }
 
 food_img{
     position: relative;
     top: 70px;
-    margin: 50px;
-    margin-bottom: 60px;
+    margin: 0px;
+    margin-bottom: 0px;
 }
 
 connect_top{
     position: relative;
     bottom: 0px;
-    top: 00px;
+    top: 70px;
 }
 
 connect_line{
@@ -102,4 +102,13 @@ bottom_button{
     left: 979px;
     opacity:0.5;
     background-color: transparent;
+}
+
+.again{
+    border:0px;
+    position: relative;
+    background-color: transparent;
+    left: 1090px;
+    bottom:140px;
+    width: 100px;
 }
