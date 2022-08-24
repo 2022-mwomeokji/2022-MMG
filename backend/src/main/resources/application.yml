@@ -1,6 +1,9 @@
 spring:
   profiles:
     group:
-      "prod": ""
+      "prod": "prod, aws"
       "local": "local, aws"
-    active: local
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
