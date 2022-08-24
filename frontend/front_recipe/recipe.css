@@ -16,7 +16,7 @@
   .left_side{
     background-color: #E9E9E9;
     height: 100vh;
-    width: 18.75%;
+    width: 18.7vw;
     position: absolute;
    
    
@@ -26,7 +26,7 @@
   .right_side{
     background-color: #E9E9E9;
     height: 100vh;
-    width: 18.75%;
+    width: 18.75vw;
     position: absolute;
    
     right: 0px;
@@ -324,3 +324,16 @@
     width: 70px;
     height: 70px;
 }
+
+@media (max-width: 1200px) {
+   .left_side{
+      display: none;
+   }
+ 
+   .right_side{
+     display: none;
+   }
+ 
+   
+ }
+ 
