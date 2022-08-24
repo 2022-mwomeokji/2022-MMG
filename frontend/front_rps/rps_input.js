@@ -159,7 +159,9 @@ function finishPage() {
     document
       .querySelector("#next_img")
       .setAttribute("src", "./img_rps/next_button.svg");
-    document.getElementById("next_img").setAttribute("onClick", "hrefLink();");
+    document
+      .getElementById("next_img")
+      .setAttribute("onClick", "connect_server();");
     $("#next_img").css("cursor", "pointer");
     let randNum = Math.floor(Math.random() * value);
     winner_name = document.getElementsByClassName("rps_name")[randNum].value;
@@ -190,16 +192,15 @@ async function connect_server() {
 
   console.log(data);
   localStorage.setItem("menuUrl", data.imageUrl);
-}
-
-function hrefLink() {
-  connect_server();
-
   localStorage.setItem("name", winner_name);
   localStorage.setItem("menu", winner_menu);
   localStorage.setItem("src", winner_src);
 
   location.href = "./rps_loading.html";
+}
+
+function hrefLink() {
+  connect_server();
 }
 
 $(function () {
