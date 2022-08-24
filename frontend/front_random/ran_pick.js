@@ -1,13 +1,20 @@
+var food=[];
 
-//API 끌어오기
-const response = await fetch(`https://mwomeokji.shop/dishes/random`);
+async function getjson(){
+    const response = await fetch('https://mwomeokji.shop/dishes/random');
+    console.log("22");
+    const data = await response.json();
+    food = data;
+    console.log(food);
+    console.log(food.id);
+    console.log(food.name);
+    url = data.imageUrl;
+    document.getElementById("food_img").src= url;
 
-const data = await response.json();
+    const resultElement = document.getElementById("food_name");
+    let food_name = resultElement.innerText;
 
-
-console.log(data.name);
-
-url = data.imageUrl;
-
-
-document.getElementById("food_img").src= url;
+    resultElement.innerText = "'"+food.name+"'";
+  
+  }
+  getjson();
