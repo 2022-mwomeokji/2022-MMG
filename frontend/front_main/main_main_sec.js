@@ -42,7 +42,7 @@ function getScrollPoistion() {
     var img3 = document.getElementById("main_main_sec_tut_img3");
     var img4 = document.getElementById("main_main_sec_tut_img4");
     
-    if (y>=0&&y<150){
+    if (y>0&&y<150){
         addBoxCss(box1,0);
         addTextCss(text1,0);
         removeBoxCss(box2);
@@ -252,4 +252,6 @@ function includeHTML() {
     else if (y>450){
         // location.href='random_category_sec.html' 여기에 랜덤 html 연결
     }
+
 }
+
