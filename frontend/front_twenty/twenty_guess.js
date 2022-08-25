@@ -11,8 +11,8 @@ function slide(){
         next_guess();
       });
       //$("#guess_button_a").hide();
-      $(".slide").animate({marginLeft:"1100px"}, 000);
-      $(".guess_slide").animate({marginLeft:"900px"}, 000);
+      $(".slide").animate({marginLeft:"1100px"}, 0000);
+      $(".guess_slide").animate({marginLeft:"900px"}, 0000);
       $(".slide").animate({marginLeft:"0px"}, 400);
       $(".guess_slide").animate({marginLeft:"0px"}, 700);
     };
@@ -30,7 +30,7 @@ async function getjson(){
   console.log(data.dishes);
   food_data = data;
   for(key in data) {
-      question_length.push(data[key].question.length); // 문자열 뒤에 length를 붙이는 것만으로 길이 측정
+    question_length.push(data[key].question.length); // 문자열 뒤에 length를 붙이는 것만으로 길이 측정
   }
   var i=0 
 
@@ -83,8 +83,11 @@ function next_guess(){
 
   guessElement.innerText = food_data[rst[guess_order]].question;
 
-  console.log(food_data[rst[guess_order]].question);
-  console.log(food_data[rst[guess_order]].question.length);
+  console.log("guess order "+guess_order+" Q= "+food_data[rst[guess_order]].question);
+  for(var j=0 ; j<44 ; j++){
+    console.log(j+" "+food_data[rst[j]].question);
+  }
+  //console.log(food_data[rst[guess_order]].question.length);
   if(food_data[rst[guess_order]].question.length >20){
     $('#background_img2').css({
       "width":"400px",
@@ -126,7 +129,14 @@ make_arr();
 
 function like(){
   
+  console.log("rst");
+  console.log(food_data[rst[0]].dishes[0].name);
+  console.log(food_data[rst[guess_order]].dishes.length);
+  
   guess_order=guess_order+1;
+  if (clicked_count > 45){
+    choose();
+  }
   bar_progress();
   if(clicked_count<=1){
 
@@ -135,10 +145,12 @@ function like(){
   }
   
   else{
-    console.log("question", food_data[rst[guess_order-2]].question);
-    for(smallkey in food_data[rst[guess_order-2]].dishes){
-      arr[food_data[rst[guess_order-2]].dishes[smallkey].id]+=1;
-      console.log(guess_order-2 +" guess "+arr[food_data[rst[guess_order-2]].dishes[smallkey].name]);
+    console.log("question ", food_data[rst[guess_order]].question);
+    for(smallkey in food_data[rst[guess_order]].dishes.length){
+      console.log("ww "+smallkey);
+      console.log("1");
+      arr[food_data[rst[guess_order]].dishes[smallkey].id]+=1;
+      console.log(guess_order-2 +" guess "+arr[food_data[rst[guess_order]].dishes[smallkey].name]);
     }
     console.log(arr);
     choose_record[guess_order]=1;
@@ -149,6 +161,9 @@ function like(){
 
 function dislike(){
   guess_order=guess_order+1;
+  if (clicked_count > 45){
+    choose();
+  }
   bar_progress();
   if(clicked_count<=1){
 
@@ -172,6 +187,9 @@ function dislike(){
 
 function normal(){
   guess_order=guess_order+1;
+  if (clicked_count > 45){
+    choose();
+  }
   bar_progress();
   if(clicked_count<=1){
 
@@ -251,6 +269,21 @@ function guess_back(){
     //console.log(choose_record);
     //console.log(arr);
   }
+
+    //$(".slide").click(function(){ 
+      $(".slide").animate({marginLeft:"-1100px"}, 0000);
+      $(".guess_slide").animate({marginLeft:"-900px"}, 0000);
+
+
+      $(".slide").animate({marginLeft:"0px"}, 400);
+      $(".guess_slide").animate({marginLeft:"0px"}, 700);      
+
+      //$(".slide").animate({marginLeft:"+900px"}, 400);
+      //$(".guess_slide").animate({marginLeft:"+200px"}, 400, function(){
+        //next_guess();
+      //});
+      //$("#guess_button_a").hide();
+
 
 }
 
