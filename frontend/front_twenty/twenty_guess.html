@@ -69,7 +69,7 @@
     
         <d class="slide">
             <button type="button" class="image" id = "guess_button_a"
-                    onclick=' slide(), like(), count("plus")'>
+                    onclick=' slide(),next_guess(), like(), count("plus")'>
                 <img class="button_hover custom-btn btn-2"  src=".\img_file_twenty\twenty_guess_answer_white.svg" width="auto", height="55">   
                 <answer_text style="position:absolute; left:130px; top:15px;">
                     예
@@ -80,7 +80,7 @@
     
         <d class="slide">
             <button type="button" class="image" id = "guess_button_b"
-                    onclick=' slide(), dislike(), count("plus")' >
+                    onclick=' slide(),next_guess(), dislike(), count("plus")' >
                 <img class="button_hover custom-btn btn-2" src=".\img_file_twenty\twenty_guess_answer_white.svg" width="auto", height="55">
                 <answer_text style="position:absolute; left:115px; top:15px;">
                     아니오
@@ -89,7 +89,7 @@
         </d>
     
         <d class="slide">
-            <button type="button" class="image" class="guess_img" id = "guess_button_c" onclick='slide(), normal(), count("plus")'>
+            <button type="button" class="image" class="guess_img" id = "guess_button_c" onclick='slide(),next_guess(), normal(), count("plus")'>
                 <img class="button_hover custom-btn btn-2" src=".\img_file_twenty\twenty_guess_answer_white.svg" width="auto", height="55">
                 <answer_text style="position:absolute; left:110px; top:15px;">
                     상관없음
