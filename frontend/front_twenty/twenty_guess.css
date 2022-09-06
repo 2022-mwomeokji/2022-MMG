@@ -1,57 +1,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url(https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700);
 
-body{
+body {
   display: flex;
   flex-direction: column;
   text-align: center;
   margin: auto;
-
 }
 .container {
-	display: flex;
+  display: flex;
   flex-direction: column;
 }
 
-top_button{
-    margin-top: 20px;
-    text-align: center;
+top_button {
+  margin-top: 20px;
+  text-align: center;
 }
 
-bar{
-    margin-bottom: 60px;
-    margin-top: 20px;
+bar {
+  margin-bottom: 60px;
+  margin-top: 20px;
 }
 
-number{
-    position: relative;
-    bottom: 0px;
-    top: -20px;
-    margin-bottom: 0px;
+number {
+  position: relative;
+  bottom: 0px;
+  top: -20px;
+  margin-bottom: 0px;
 }
-number_buttom{
+number_buttom {
   position: relative;
   top: -10px;
   font-family: "NanumSquareAcr";
-
 }
 
-guess_button{
+guess_button {
   position: relative;
   margin-top: 50px;
 }
 
-button_background{
-    position: relative;
-    /*
+button_background {
+  position: relative;
+  /*
     right :120px;
     */
-    
-    right :180px;
-    
+
+  right: 180px;
 }
-guess_text{
-/*
+guess_text {
+  /*
     position: absolute;
     top: -90%;
     color: white;
@@ -62,92 +59,76 @@ guess_text{
     max-width: 4000px;
     width: 400px;    
 */
-    
 
-    width: 400px;
-    position: absolute;
-    top: -90%;
-    color: white;
-    right: 30px;
-    bottom: 20px;
-    font-family: "NanumSquareAcr";
-    text-align: center;    
-
-    
-    
+  width: 400px;
+  position: absolute;
+  top: -90%;
+  color: white;
+  right: 30px;
+  bottom: 20px;
+  font-family: "NanumSquareAcr";
+  text-align: center;
 }
 
-answer_text{
-    position: absolute;
-    color: black;
-    left : 130px;
-    top: 15px;
-    text-align: center;
-    font-family: "NanumSquareAcr";
-    font-size: 16px;
+answer_text {
+  position: absolute;
+  color: black;
+  left: 130px;
+  top: 15px;
+  text-align: center;
+  font-family: "NanumSquareAcr";
+  font-size: 16px;
 }
 
-d{
-    position: relative;
+d {
+  position: relative;
 }
 
-
-
-number{
-    position: relative;
-    bottom: 80px;    
+number {
+  position: relative;
+  bottom: 80px;
 }
 
 .image {
-    border: 0ch;
-    background-color: white;
-    text-align: center;
-    position: relative;
-
+  border: 0ch;
+  background-color: white;
+  text-align: center;
+  position: relative;
 }
 
-
-
-#back_button{
-    position: relative;
-    right: 430px;
-    top: 0px;
-
+#back_button {
+  position: relative;
+  right: 430px;
+  top: 0px;
 }
 
-
-#reset_button{
-    position: relative;
-    background-color: white;
-    left: 350px;
+#reset_button {
+  position: relative;
+  background-color: white;
+  left: 350px;
 }
 
-#guess_button_a{
-    position: relative;
-    left: 180px;
-    bottom: 40px;
+#guess_button_a {
+  position: relative;
+  left: 180px;
+  bottom: 40px;
 }
 
-#guess_button_b{
-    position: relative;
-    left: 180px;
-    bottom: 10px;
+#guess_button_b {
+  position: relative;
+  left: 180px;
+  bottom: 10px;
 }
 
-#guess_button_c{
-    position: relative;
-    left: 180px;
-    top: 20px;
+#guess_button_c {
+  position: relative;
+  left: 180px;
+  top: 20px;
 }
 
-
-.button_hover:hover{
-    content: url("./img_file_twenty/twenty_guess_yellow_answer.svg");
-
-
+.button_hover:hover {
+  content: url("./img_file_twenty/twenty_guess_yellow_answer.svg");
 }
-
-
 
 .clicked {
   position: absolute;
@@ -162,66 +143,53 @@ number{
   display: none;
 }
 
-
 .bottom_text {
-    position: absolute;
-    bottom: 5px;
-    right: 12px;
-  }
-
-#bottom_button{
-    position: relative;
-    top:60px;
+  position: absolute;
+  bottom: 5px;
+  right: 12px;
 }
 
-.guess_img{
-    object-fit: cover;
-    width: 10px;
+#bottom_button {
+  position: relative;
+  top: 60px;
 }
 
-#guess_number{
-    font-size: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-family:Arial;
+.guess_img {
+  object-fit: cover;
+  width: 10px;
 }
 
-.skip_image{
-    position: relative;
-
+#guess_number {
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-family: Arial;
 }
 
-skip{
-    position: relative;
-    top: 60px;
+.skip_image {
+  position: relative;
 }
 
-#jb{
-    width: 20%;
-    height: 30px;
+skip {
+  position: relative;
+  top: 60px;
 }
 
 #jb {
-    appearance: none;
+  width: 20%;
+  height: 30px;
+}
+
+#jb {
+  appearance: none;
 }
 #jb::-webkit-progress-bar {
-    background:#f0f0f0;
-    border-radius:10px;
-    box-shadow: inset 3px 3px 10px #ccc;
+  background: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 10px #ccc;
 }
 #jb::-webkit-progress-value {
-    border-radius:10px;
-    background: #1D976C;
-    background: -webkit-linear-gradient(to right, #E06437, #E06437);
-    background: linear-gradient(to right, #E06437, #E06437);
+  border-radius: 10px;
+  background: #1d976c;
+  background: -webkit-linear-gradient(to right, #e06437, #e06437);
+  background: linear-gradient(to right, #e06437, #e06437);
 }
-
-
-
-
-
-
-
-
-
-
-
