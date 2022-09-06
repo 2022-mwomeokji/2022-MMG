@@ -78,9 +78,9 @@ function next_guess(){
 
   guessElement.innerText = food_data[rst[guess_order]].question;
 
-  for(var j=0 ; j<44 ; j++){
-    console.log(j+" "+food_data[rst[j]].question);
-  }
+  //for(var j=0 ; j<44 ; j++){
+  //  console.log(j+" "+food_data[rst[j]].question);
+  //}
 
   if(food_data[rst[guess_order]].question.length >20){
     $('#background_img2').css({
@@ -151,7 +151,7 @@ function normal(){
   bar_progress();
 
   choose_record[guess_order]=0;
-  console.log(choose_record);
+  //console.log(choose_record);
 }
 
 function guess_back(){
