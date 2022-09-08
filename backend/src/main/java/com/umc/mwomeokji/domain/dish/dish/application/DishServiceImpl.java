@@ -1,5 +1,8 @@
 package com.umc.mwomeokji.domain.dish.dish.application;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.exceptions.CsvException;
 import com.umc.mwomeokji.domain.dish.category.dao.CategoryRepository;
 import com.umc.mwomeokji.domain.dish.category.domain.Category;
 import com.umc.mwomeokji.domain.dish.category.exception.NotFoundCategoryException;
@@ -7,13 +10,19 @@ import com.umc.mwomeokji.domain.dish.dish.dao.DishRepository;
 import com.umc.mwomeokji.domain.dish.dish.domain.Dish;
 import com.umc.mwomeokji.domain.dish.dish.dto.DishDto.*;
 import com.umc.mwomeokji.domain.dish.dish.dto.DishMapper;
+import com.umc.mwomeokji.domain.dish.dish.exception.FileException;
+import com.umc.mwomeokji.domain.dish.dish.exception.NotEqualSizeException;
 import com.umc.mwomeokji.domain.dish.dish.exception.NotFoundDishException;
+import com.umc.mwomeokji.global.error.exception.ExceptionCodeAndDetails;
 import com.umc.mwomeokji.infra.s3.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,6 +42,47 @@ public class DishServiceImpl implements DishService{
         String imageUrl = fileService.uploadImage(multipartFile);
         Dish dish = dishRepository.save(dishMapper.toEntity(request, imageUrl));
         return dishMapper.toDishDetailsResponse(dish);
+    }
+
+    @Override
+    public List<DishNameResponse> saveDishByCsv(MultipartFile file, List<MultipartFile> images) {
+        CSVReader csvReader = new CSVReaderBuilder(toInputStreamReader(file)).withSkipLines(1).build();
+        List<String[]> dishes = readAll(csvReader);
+        List<DishPostRequest> dishPostRequests = getDishPostRequests(dishes);
+
+        if (dishPostRequests.size() != images.size()) {
+            throw new NotEqualSizeException();
+        }
+
+        List<String> imageUrls = images.stream().map(image -> fileService.uploadImage(image)).collect(Collectors.toList());
+        List<Dish> dishesList = new ArrayList<>();
+        for (int i = 0; i < dishPostRequests.size(); i++) {
+            dishesList.add(dishMapper.toEntity(dishPostRequests.get(i), imageUrls.get(i)));
+        }
+        dishRepository.saveAll(dishesList);
+        return dishesList.stream().map(dish -> dishMapper.toDishNameResponse(dish)).collect(Collectors.toList());
+    }
+
+    private InputStreamReader toInputStreamReader(MultipartFile file) {
+        try {
+            return new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new FileException(ExceptionCodeAndDetails.FILE_IO_EXCEPTION);
+        }
+    }
+
+    private List<String[]> readAll(CSVReader csvReader){
+        try {
+            return csvReader.readAll();
+        } catch (IOException | CsvException e) {
+            throw new FileException(ExceptionCodeAndDetails.FILE_IO_EXCEPTION);
+        }
+    }
+
+    private List<DishPostRequest> getDishPostRequests(List<String[]> dishes) {
+        return dishes.stream()
+                .map(line -> new DishPostRequest(line[0].trim(), line[1].trim(), line[2].trim(), line[3].trim()))
+                .collect(Collectors.toList());
     }
 
     @Override
