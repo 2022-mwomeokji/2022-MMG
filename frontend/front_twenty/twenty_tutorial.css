@@ -8,31 +8,22 @@ body {
 }
 
 logo {
-  position: relative;
   margin-top: 30px;
   margin-bottom: 20px;
 }
 
 main_logo {
-  text-align: center;
   margin-top: 30px;
 }
 
 .image {
   background-color: transparent;
-  text-align: center;
   width: 10px;
 }
 
 #start_botton {
-  text-align: center;
   margin-bottom: 0px;
-  position: relative;
   bottom: -20px;
-}
-
-#logo_word {
-  text-align: center;
 }
 
 tutorial {
@@ -43,18 +34,9 @@ tutorial {
 
 .gif {
   border-radius: 20px;
-  text-align: center;
-}
-
-#back_botton {
-  position: relative;
-  right: 470px;
-  top: 20px;
-  border: 0ch;
 }
 
 texts {
-  position: relative;
   font-family: "NanumSquareAcr";
   font-size: 14;
   margin-bottom: 50px;

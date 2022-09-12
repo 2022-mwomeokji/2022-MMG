@@ -64,7 +64,7 @@ answer_text {
   font-size: 16px;
 }
 
-d {
+answer_box {
   position: relative;
 }
 
@@ -136,11 +136,6 @@ number {
 #bottom_button {
   position: relative;
   top: 60px;
-}
-
-.guess_img {
-  object-fit: cover;
-  width: 10px;
 }
 
 #guess_number {

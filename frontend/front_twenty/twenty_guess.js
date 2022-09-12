@@ -28,7 +28,6 @@ async function getjson() {
   for (key in data) {
     question_length.push(data[key].question.length); // 문자열 뒤에 length를 붙이는 것만으로 길이 측정
   }
-  var i = 0;
 
   if (guess_start_check == 0) {
     next_guess();
@@ -73,7 +72,7 @@ function next_guess() {
   guessElement.innerText = food_data[rst[guess_order]].question;
 
   if (food_data[rst[guess_order]].question.length > 20) {
-    $("#background_img2").css({
+    $("#background_changed_location").css({
       width: "400px",
       left: "-120px",
     });
@@ -82,10 +81,10 @@ function next_guess() {
       width: "400px",
       left: "-10px",
     });
-    document.getElementById("background_img").src =
+    document.getElementById("background_changed").src =
       "./img_file_twenty/twenty_guess_guess_long.svg";
   } else {
-    $("#background_img2").css({
+    $("#background_changed_location").css({
       width: "100px",
       left: "-180px",
     });
@@ -93,7 +92,7 @@ function next_guess() {
       width: "300px",
       right: "-20px",
     });
-    document.getElementById("background_img").src =
+    document.getElementById("background_changed").src =
       "./img_file_twenty/twenty_guess_guess_background.svg";
   }
 }
@@ -145,7 +144,7 @@ function normal() {
 
 function guess_back() {
   if (food_data[rst[guess_order - 1]].question.length > 20) {
-    $("#background_img2").css({
+    $("#background_changed_location").css({
       width: "400px",
       left: "-120px",
     });
@@ -154,10 +153,10 @@ function guess_back() {
       width: "400px",
       left: "-10px",
     });
-    document.getElementById("background_img").src =
+    document.getElementById("background_changed").src =
       "./img_file_twenty/twenty_guess_guess_long.svg";
   } else {
-    $("#background_img2").css({
+    $("#background_changed_location").css({
       width: "100px",
       left: "-180px",
     });
@@ -166,7 +165,7 @@ function guess_back() {
       width: "300px",
       right: "-20px",
     });
-    document.getElementById("background_img").src =
+    document.getElementById("background_changed").src =
       "./img_file_twenty/twenty_guess_guess_background.svg";
   }
   const guessElement = document.getElementById("guess_text");
