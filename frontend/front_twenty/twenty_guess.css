@@ -41,25 +41,9 @@ guess_button {
 
 button_background {
   position: relative;
-  /*
-    right :120px;
-    */
-
   right: 180px;
 }
 guess_text {
-  /*
-    position: absolute;
-    top: -90%;
-    color: white;
-    right: 10px;
-    bottom: 20px;
-    font-family: "NanumSquareAcr";
-    text-align: center;    
-    max-width: 4000px;
-    width: 400px;    
-*/
-
   width: 400px;
   position: absolute;
   top: -90%;

@@ -67,15 +67,10 @@ var guess_order = 0;
 var clicked_count = 0;
 
 function next_guess() {
-  clicked_count += 1;
   data = getjson();
   const guessElement = document.getElementById("guess_text");
 
   guessElement.innerText = food_data[rst[guess_order]].question;
-
-  //for(var j=0 ; j<44 ; j++){
-  //  console.log(j+" "+food_data[rst[j]].question);
-  //}
 
   if (food_data[rst[guess_order]].question.length > 20) {
     $("#background_img2").css({
@@ -112,6 +107,8 @@ make_arr();
 
 function like() {
   guess_order = guess_order + 1;
+  clicked_count += 1;
+  console.log(clicked_count);
   if (clicked_count > 45) {
     choose();
   }
@@ -144,7 +141,6 @@ function normal() {
   bar_progress();
 
   choose_record[guess_order] = 0;
-  //console.log(choose_record);
 }
 
 function guess_back() {
@@ -217,7 +213,7 @@ function choose() {
   const resultElement = document.getElementById("guess_number");
   number = resultElement.innerText;
 
-  if (number > 7) {
+  if (number > 12) {
     let sorted = Object.entries(arr).sort((a, b) => b[1] - a[1]);
     var sorted_arr = [];
     var big_value = sorted[0][1];
@@ -239,7 +235,7 @@ function choose() {
 
     localStorage.setItem("food_code", chose_food);
     location.href = "./twenty_loading.html";
-  } else if (number < 8) {
+  } else if (number < 13) {
     window.alert("조금 더 진행해주시면 감사하겠습니다");
   }
 }
