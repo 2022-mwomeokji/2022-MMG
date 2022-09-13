@@ -4,7 +4,11 @@ chose_succuess(food_id);
 result();
 function result(name) {
   const resultElement = document.getElementById("food_name");
-  let food_name = resultElement.innerText;
+  try {
+    let food_name = resultElement.innerText;
+  } catch {
+    return 0;
+  }
   food_name = 1;
   resultElement.innerText = "'" + name + "'";
   food_id = localStorage.getItem("food_code");

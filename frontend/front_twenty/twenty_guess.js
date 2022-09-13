@@ -68,8 +68,11 @@ var clicked_count = 0;
 function next_guess() {
   data = getjson();
   const guessElement = document.getElementById("guess_text");
-
-  guessElement.innerText = food_data[rst[guess_order]].question;
+  try {
+    guessElement.innerText = food_data[rst[guess_order]].question;
+  } catch {
+    return 0;
+  }
 
   if (food_data[rst[guess_order]].question.length > 20) {
     $("#background_changed_location").css({
@@ -107,7 +110,6 @@ make_arr();
 function like() {
   guess_order = guess_order + 1;
   clicked_count += 1;
-  console.log(clicked_count);
   if (clicked_count > 45) {
     choose();
   }
@@ -254,7 +256,7 @@ function count(type) {
     }
   }
 
-  if (number > 12) {
+  if (number > 13) {
     document.getElementById("skipd").src =
       "./img_file_twenty/twenty_guess_skip_guess.svg";
   } else {
