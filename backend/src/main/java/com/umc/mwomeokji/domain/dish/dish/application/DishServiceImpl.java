@@ -33,7 +33,7 @@ public class DishServiceImpl implements DishService{
     @Override
     public DishDetailsResponse saveDish(DishPostRequest request, MultipartFile multipartFile) {
         String imageUrl = fileService.uploadImage(multipartFile);
-        Dish dish = dishRepository.save(dishMapper.toEntity(request, imageUrl));
+        Dish dish = dishRepository.save(dishMapper.toEntity(request, imageUrl, findByCategory(request.getCategory())));
         return dishMapper.toDishDetailsResponse(dish);
     }
 
@@ -45,7 +45,10 @@ public class DishServiceImpl implements DishService{
             throw new NotEqualSizeException();
         }
         List<String> imageUrls = images.stream().map(image -> fileService.uploadImage(image)).collect(Collectors.toList());
-        List<Dish> dishesList = dishMapper.toEntityList(dishPostRequestList, imageUrls);
+        List<Dish> dishesList = new ArrayList<>();
+        for (int i = 0; i < dishPostRequestList.size(); i++){
+            dishesList.add(dishMapper.toEntity(dishPostRequestList.get(i), imageUrls.get(i), findByCategory(dishPostRequestList.get(i).getCategory())));
+        }
         dishRepository.saveAll(dishesList);
         return dishMapper.toDishNameResponseList(dishesList);
     }
@@ -99,6 +102,10 @@ public class DishServiceImpl implements DishService{
         return dishMapper.toDishDetailsResponse(selectOneFromList(dishesList));
     }
 
+    private Category findByCategory(String categoryName) {
+        return categoryRepository.findByCategory(categoryName).orElseThrow(NotFoundCategoryException::new);
+    }
+
     private String removeBlank(String str) {
         return str.replaceAll(" ", "");
     }
@@ -109,7 +116,7 @@ public class DishServiceImpl implements DishService{
     }
 
     private List<Dish> getDishByCategory(String categoryName) {
-        Category category = categoryRepository.findByCategory(categoryName).orElseThrow(NotFoundCategoryException::new);
+        Category category = findByCategory(categoryName);
         return dishRepository.findByCategory(category);
     }
 }

@@ -14,7 +14,7 @@ public class DishCsvReader extends CsvReader{
 
     public List<DishPostRequest> getDishPostRequests(List<String[]> dishes) {
         return dishes.stream()
-                .map(line -> new DishPostRequest(line[0].trim(), line[3].trim(), line[4].trim(), line[5].trim()))
+                .map(line -> new DishPostRequest(line[0].trim(), line[1].trim(), line[3].trim(), line[4].trim(), line[5].trim()))
                 .collect(Collectors.toList());
     }
 }
