@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("local")
+@Profile("prod")
 @RequiredArgsConstructor
 public class LocalDataStarter implements ApplicationRunner {
 
