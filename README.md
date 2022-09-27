@@ -75,16 +75,16 @@
       <th>스무고개</th>
     </tr>
     <tr>
-      <td><img src=https://user-images.githubusercontent.com/69956503/192460357-cb5bb843-e349-4ae3-92df-dce63226d7d7.gif alt="gif-main-page" width="350"></td>
-      <td><img src=https://user-images.githubusercontent.com/69956503/192460355-26f85421-f476-4933-b51d-a14eca3495e4.gif alt="gif-function1" width="350"></td>
+      <td><img src=https://user-images.githubusercontent.com/69956503/192460357-cb5bb843-e349-4ae3-92df-dce63226d7d7.gif alt="gif-main-page" width="370"></td>
+      <td><img src=https://user-images.githubusercontent.com/69956503/192460355-26f85421-f476-4933-b51d-a14eca3495e4.gif alt="gif-function1" width="370"></td>
     </tr>
     <tr align="center">
       <th>가위바위보</th>
       <th>랜덤선택</th>
     </tr>
     <tr>
-      <td><img src=https://user-images.githubusercontent.com/69956503/192460352-da5bb865-2eb7-4e32-95a5-1f10ca9567a1.gif alt="gif-function2" width="350"></td>
-      <td><img src=https://user-images.githubusercontent.com/69956503/192460340-c318cceb-0053-4b22-8808-3d63e509ee35.gif alt="gif-function3" width="350"></td>
+      <td><img src=https://user-images.githubusercontent.com/69956503/192460352-da5bb865-2eb7-4e32-95a5-1f10ca9567a1.gif alt="gif-function2" width="370"></td>
+      <td><img src=https://user-images.githubusercontent.com/69956503/192460340-c318cceb-0053-4b22-8808-3d63e509ee35.gif alt="gif-function3" width="370"></td>
     </tr>
   </table>
 </div>
