@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/69956503/192281611-7c6a5fff-044c-4ab2-9261-ea4f38d0ccc1.png" alt="mwomeokji-logo" width="220" height="220">
+    <img src="https://user-images.githubusercontent.com/69956503/192281611-7c6a5fff-044c-4ab2-9261-ea4f38d0ccc1.png" alt="mwomeokji-logo" width="150" height="150">
 </p>
 
 <div align="center">
