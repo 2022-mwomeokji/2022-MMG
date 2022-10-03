@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+main_text {
+  margin-top: 4.5rem;
+}
+
+small_text {
+  margin: 0 auto;
+  font-size: 0.875rem;
+  width: 18.75rem;
+  position: relative;
+  margin-top: 2rem;
+  font-family: "NanumSquareAcr";
+  color: gray;
+}
+
+main_logo {
+  margin-top: 4.625rem;
+  text-align: center;
+  position: relative;
+}
+
+.image {
+  background-color: transparent;
+  border: 0ch;
+}
+
+start_button {
+  margin-bottom: 5rem;
+  position: relative;
+  margin-top: 6.5rem;
+}
+
+#logo_word {
+  width: 0.75rem;
+  height: 0.563rem;
+}
+#start_button:hover {
+  cursor: pointer;
+}

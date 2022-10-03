@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+logo {
+  margin-top: 4.5rem;
+}
+
+main_logo {
+  margin-top: 1.875rem;
+}
+
+.image {
+  background-color: transparent;
+  width: 6.25rem;
+}
+
+start_button {
+  margin-top: 4.25rem;
+  margin-bottom: 5rem;
+}
+
+tutorial {
+  margin-top: 3rem;
+}
+
+.gif {
+  border-radius: 1.25rem;
+}
+
+texts {
+  font-family: "NanumSquareAcr";
+  font-size: 0.875rem;
+  margin-top: 2.625rem;
+}
