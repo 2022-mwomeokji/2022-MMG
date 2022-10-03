@@ -1,9 +1,1 @@
-spring:
-  profiles:
-    group:
-      "prod": "prod, aws"
-      "local": "local, aws"
-  servlet:
-    multipart:
-      max-file-size: 500MB
-      max-request-size: 500MB
+
